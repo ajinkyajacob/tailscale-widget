@@ -7,3 +7,4 @@ app/build/
 captures/
 .commandcode/
 .DS_Store
+graphify-out/

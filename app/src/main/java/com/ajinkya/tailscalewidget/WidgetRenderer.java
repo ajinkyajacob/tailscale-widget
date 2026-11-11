@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.RemoteViews;
 
-/** Draws the widget for one of four states: connected, disconnected, transitioning, missing app. */
+/** Draws the widget by resolving inputs into an explicit {@link WidgetState}. */
 final class WidgetRenderer {
 
     private static final int PENDING_INTENT_FLAGS =
@@ -27,12 +27,13 @@ final class WidgetRenderer {
                 R.layout.widget_tailscale_v3);
         boolean installed = TailscaleController.isInstalled(context);
         boolean vpnActive = installed && TailscaleController.isVpnActive(context);
+        WidgetState state = resolveState(installed, vpnActive, pendingConnect);
 
         views.setOnClickPendingIntent(R.id.widget_root,
                 installed ? homeIntent(context, appWidgetId) : storeIntent(context, appWidgetId));
         views.setOnClickPendingIntent(R.id.refresh_button, refreshIntent(context, appWidgetId));
 
-        if (!installed) {
+        if (state == WidgetState.NOT_INSTALLED) {
             views.setTextViewText(R.id.status_text, context.getString(R.string.status_not_installed));
             views.setTextColor(R.id.status_text, context.getColor(R.color.text_secondary));
             views.setImageViewResource(R.id.status_dot, R.drawable.dot_disconnected);
@@ -52,33 +53,55 @@ final class WidgetRenderer {
         views.setOnClickPendingIntent(R.id.accounts_button, appIntent(context, appWidgetId));
         views.setOnClickPendingIntent(R.id.toggle_button, toggleIntent(context, appWidgetId));
 
-        if (pendingConnect != null) {
-            int label = pendingConnect ? R.string.status_connecting : R.string.status_disconnecting;
-            views.setTextViewText(R.id.status_text, context.getString(label));
-            views.setTextColor(R.id.status_text, context.getColor(R.color.text_primary));
-            views.setImageViewResource(R.id.status_dot, R.drawable.dot_pending);
-            views.setTextViewText(R.id.toggle_button, context.getString(label));
-            views.setInt(R.id.toggle_button, "setBackgroundResource",
-                    R.drawable.bg_button_tonal);
-            views.setTextColor(R.id.toggle_button, context.getColor(R.color.text_primary));
-        } else if (vpnActive) {
-            views.setTextViewText(R.id.status_text, context.getString(R.string.status_connected));
-            views.setTextColor(R.id.status_text, context.getColor(R.color.text_primary));
-            views.setImageViewResource(R.id.status_dot, R.drawable.dot_connected);
-            views.setTextViewText(R.id.toggle_button, context.getString(R.string.action_disconnect));
-            views.setInt(R.id.toggle_button, "setBackgroundResource",
-                    R.drawable.bg_button_destructive);
-            views.setTextColor(R.id.toggle_button, context.getColor(R.color.disconnect_text));
-        } else {
-            views.setTextViewText(R.id.status_text, context.getString(R.string.status_disconnected));
-            views.setTextColor(R.id.status_text, context.getColor(R.color.text_secondary));
-            views.setImageViewResource(R.id.status_dot, R.drawable.dot_disconnected);
-            views.setTextViewText(R.id.toggle_button, context.getString(R.string.action_connect));
-            views.setInt(R.id.toggle_button, "setBackgroundResource", R.drawable.bg_button_connect);
-            views.setTextColor(R.id.toggle_button, context.getColor(R.color.on_accent));
+        switch (state) {
+            case CONNECTING:
+                renderPending(context, views, R.string.status_connecting);
+                break;
+            case DISCONNECTING:
+                renderPending(context, views, R.string.status_disconnecting);
+                break;
+            case CONNECTED:
+                views.setTextViewText(R.id.status_text, context.getString(R.string.status_connected));
+                views.setTextColor(R.id.status_text, context.getColor(R.color.text_primary));
+                views.setImageViewResource(R.id.status_dot, R.drawable.dot_connected);
+                views.setTextViewText(R.id.toggle_button, context.getString(R.string.action_disconnect));
+                views.setInt(R.id.toggle_button, "setBackgroundResource",
+                        R.drawable.bg_button_destructive);
+                views.setTextColor(R.id.toggle_button, context.getColor(R.color.disconnect_text));
+                break;
+            case DISCONNECTED:
+                views.setTextViewText(R.id.status_text, context.getString(R.string.status_disconnected));
+                views.setTextColor(R.id.status_text, context.getColor(R.color.text_secondary));
+                views.setImageViewResource(R.id.status_dot, R.drawable.dot_disconnected);
+                views.setTextViewText(R.id.toggle_button, context.getString(R.string.action_connect));
+                views.setInt(R.id.toggle_button, "setBackgroundResource", R.drawable.bg_button_connect);
+                views.setTextColor(R.id.toggle_button, context.getColor(R.color.on_accent));
+                break;
+            case NOT_INSTALLED:
+            default:
+                break;
         }
 
         manager.updateAppWidget(appWidgetId, views);
+    }
+
+    static WidgetState resolveState(boolean installed, boolean vpnActive, Boolean pendingConnect) {
+        if (!installed) {
+            return WidgetState.NOT_INSTALLED;
+        }
+        if (pendingConnect != null) {
+            return pendingConnect ? WidgetState.CONNECTING : WidgetState.DISCONNECTING;
+        }
+        return vpnActive ? WidgetState.CONNECTED : WidgetState.DISCONNECTED;
+    }
+
+    private static void renderPending(Context context, RemoteViews views, int labelRes) {
+        views.setTextViewText(R.id.status_text, context.getString(labelRes));
+        views.setTextColor(R.id.status_text, context.getColor(R.color.text_primary));
+        views.setImageViewResource(R.id.status_dot, R.drawable.dot_pending);
+        views.setTextViewText(R.id.toggle_button, context.getString(labelRes));
+        views.setInt(R.id.toggle_button, "setBackgroundResource", R.drawable.bg_button_tonal);
+        views.setTextColor(R.id.toggle_button, context.getColor(R.color.text_primary));
     }
 
     private static void renderAccount(Context context, RemoteViews views, int appWidgetId) {

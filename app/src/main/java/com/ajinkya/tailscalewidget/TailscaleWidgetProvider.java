@@ -57,22 +57,23 @@ public class TailscaleWidgetProvider extends AppWidgetProvider {
             return;
         }
 
-        boolean connect = !TailscaleController.isVpnActive(context);
-        TailscaleController.requestConnection(context, connect);
-        update(context, appWidgetId, connect);
+        boolean currentlyActive = TailscaleController.isVpnActive(context);
+        boolean desiredActive = !currentlyActive; // explicit target transition state
+        TailscaleController.requestConnection(context, desiredActive);
+        update(context, appWidgetId, desiredActive);
 
         new Thread(() -> {
             try {
-                // Keep the transition on screen until Tailscale actually flips the tunnel, so the
-                // label does not flicker back to the old state while the app is still starting.
+                // Transition: requested -> reconciling (poll) -> settled (observed state).
                 long deadline = SystemClock.elapsedRealtime() + TRANSITION_TIMEOUT_MS;
                 while (SystemClock.elapsedRealtime() < deadline) {
-                    if (TailscaleController.isVpnActive(context) == connect) {
+                    if (TailscaleController.isVpnActive(context) == desiredActive) {
                         break;
                     }
                     Thread.sleep(TRANSITION_POLL_MS);
                 }
             } catch (InterruptedException ignored) {
+                Thread.currentThread().interrupt();
             } finally {
                 update(context, appWidgetId, null);
                 pendingResult.finish();

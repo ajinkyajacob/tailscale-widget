@@ -16,6 +16,9 @@ import java.util.List;
  * Reads the login name from Tailscale's own account screen and, when a switch was requested from
  * the widget, drives the profile switcher. Tailscale exposes no API for the active profile, so this
  * observes only its window (see accessibility_service_config.xml) and caches the name locally.
+ *
+ * <p>Implicit states are made explicit as phases:
+ * IDLE_OBSERVE, SWITCH_PENDING, and POST_SWITCH_SETTLE.</p>
  */
 public class AccountReaderService extends AccessibilityService {
 
@@ -24,11 +27,18 @@ public class AccountReaderService extends AccessibilityService {
     private static final long SWITCH_SCAN_INTERVAL_MS = 400L;
     private static final long CARD_CLICK_COOLDOWN_MS = 800L;
     private static final long POST_SWITCH_SETTLE_MS = 3000L;
+    private static final long POST_SWITCH_REFRESH_DELAY_MS = 2500L;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private long lastScan;
     private long lastCardClick;
     private long lastSwitchAt;
+
+    private enum ReaderPhase {
+        SWITCH_PENDING,
+        POST_SWITCH_SETTLE,
+        IDLE_OBSERVE
+    }
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -39,10 +49,9 @@ public class AccountReaderService extends AccessibilityService {
             return;
         }
 
-        boolean switching = AccountStore.isSwitchPending(this);
-        long interval = switching ? SWITCH_SCAN_INTERVAL_MS : IDLE_SCAN_INTERVAL_MS;
+        ReaderPhase phase = resolvePhase();
         long now = SystemClock.elapsedRealtime();
-        if (now - lastScan < interval) {
+        if (!shouldScan(phase, now)) {
             return;
         }
         lastScan = now;
@@ -52,23 +61,47 @@ public class AccountReaderService extends AccessibilityService {
             return;
         }
 
-        if (switching) {
-            handlePendingSwitch(root, now);
-            return;
-        }
-        if (now - lastSwitchAt < POST_SWITCH_SETTLE_MS) {
-            return;
-        }
-
-        String account = firstEmail(root);
-        if (account != null && !account.equals(AccountStore.getAccount(this))) {
-            AccountStore.setAccount(this, account);
-            updateWidgets();
+        switch (phase) {
+            case SWITCH_PENDING:
+                handlePendingSwitch(root, now);
+                return;
+            case POST_SWITCH_SETTLE:
+                // Guard window: ignore observations until Tailscale UI settles after a switch.
+                return;
+            case IDLE_OBSERVE:
+                observeAccount(root);
+                return;
+            default:
+                return;
         }
     }
 
     @Override
     public void onInterrupt() {
+    }
+
+    private ReaderPhase resolvePhase() {
+        if (AccountStore.isSwitchPending(this)) {
+            return ReaderPhase.SWITCH_PENDING;
+        }
+        if (SystemClock.elapsedRealtime() - lastSwitchAt < POST_SWITCH_SETTLE_MS) {
+            return ReaderPhase.POST_SWITCH_SETTLE;
+        }
+        return ReaderPhase.IDLE_OBSERVE;
+    }
+
+    private boolean shouldScan(ReaderPhase phase, long now) {
+        long interval = (phase == ReaderPhase.SWITCH_PENDING)
+                ? SWITCH_SCAN_INTERVAL_MS : IDLE_SCAN_INTERVAL_MS;
+        return now - lastScan >= interval;
+    }
+
+    private void observeAccount(AccessibilityNodeInfo root) {
+        String account = firstEmail(root);
+        if (account != null && !account.equals(AccountStore.getAccount(this))) {
+            AccountStore.setAccount(this, account);
+            updateWidgets();
+        }
     }
 
     private void handlePendingSwitch(AccessibilityNodeInfo root, long now) {
@@ -84,6 +117,15 @@ public class AccountReaderService extends AccessibilityService {
             return;
         }
 
+        if (trySwitchToDifferentAccount(rows, current, now)) {
+            return;
+        }
+
+        // Still on Settings: open the account card to reach the switcher.
+        tryOpenSwitcherFromCurrentAccount(rows, current, now);
+    }
+
+    private boolean trySwitchToDifferentAccount(List<AccountRow> rows, String current, long now) {
         // On the switcher the current profile has no click action; every other row is clickable.
         for (AccountRow row : rows) {
             if (!row.email.equalsIgnoreCase(current)) {
@@ -92,21 +134,24 @@ public class AccountReaderService extends AccessibilityService {
                     AccountStore.clearSwitch(this);
                     lastSwitchAt = now;
                     updateWidgets();
-                    handler.postDelayed(this::updateWidgets, 2500L);
+                    handler.postDelayed(this::updateWidgets, POST_SWITCH_REFRESH_DELAY_MS);
                 }
-                return;
+                return true;
             }
         }
+        return false;
+    }
 
-        // Still on Settings: open the account card to reach the switcher.
-        if (now - lastCardClick > CARD_CLICK_COOLDOWN_MS) {
-            for (AccountRow row : rows) {
-                if (row.email.equalsIgnoreCase(current)) {
-                    if (row.node.performAction(AccessibilityNodeInfo.ACTION_CLICK)) {
-                        lastCardClick = now;
-                    }
-                    return;
+    private void tryOpenSwitcherFromCurrentAccount(List<AccountRow> rows, String current, long now) {
+        if (now - lastCardClick <= CARD_CLICK_COOLDOWN_MS) {
+            return;
+        }
+        for (AccountRow row : rows) {
+            if (row.email.equalsIgnoreCase(current)) {
+                if (row.node.performAction(AccessibilityNodeInfo.ACTION_CLICK)) {
+                    lastCardClick = now;
                 }
+                return;
             }
         }
     }
@@ -128,6 +173,9 @@ public class AccountReaderService extends AccessibilityService {
     }
 
     private String firstEmail(AccessibilityNodeInfo node) {
+        if (node == null) {
+            return null;
+        }
         CharSequence text = node.getText();
         if (text != null) {
             String value = text.toString().trim();
@@ -137,9 +185,6 @@ public class AccountReaderService extends AccessibilityService {
         }
         for (int i = 0; i < node.getChildCount(); i++) {
             AccessibilityNodeInfo child = node.getChild(i);
-            if (child == null) {
-                continue;
-            }
             String found = firstEmail(child);
             if (found != null) {
                 return found;

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailscale Widget — How it works</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a2e;
+      --surface-2: #18233d;
+      --line: #263454;
+      --text: #e8edf8;
+      --muted: #9fb0d0;
+      --accent: #4e8cff;
+      --accent-2: #7bb0ff;
+      --good: #31c48d;
+      --warn: #f5a524;
+      --bad: #f97066;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--sans); color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, #162447, transparent), var(--bg); line-height: 1.55; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 64px; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+    h1 { font-size: 2.1rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.35rem; margin-top: 34px; }
+    h3 { font-size: 1.05rem; margin-top: 18px; color: var(--accent-2); }
+    p { margin: 0 0 12px; color: var(--muted); }
+    a { color: var(--accent-2); }
+    .hero { background: linear-gradient(180deg, rgba(78,140,255,0.12), rgba(78,140,255,0)), var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+    .tag { display: inline-block; font-size: 12px; color: #dbe7ff; background: #1d335f; border: 1px solid #2f4f86; padding: 4px 10px; border-radius: 999px; margin: 0 8px 10px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    code, pre { font-family: var(--mono); }
+    code { background: #0d1528; border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; color: #d7e3ff; font-size: 0.92em; }
+    pre { background: #0d1528; border: 1px solid var(--line); border-radius: 12px; padding: 14px; overflow: auto; color: #d7e3ff; font-size: 13px; }
+    ul { margin: 8px 0 12px 20px; color: var(--muted); }
+    li { margin: 6px 0; }
+    .state { display: inline-block; font-weight: 600; font-size: 12px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); }
+    .s-idle { color: #d7e3ff; background: #1a2744; }
+    .s-pend { color: #fff3d6; background: #4a3510; border-color: #6b4b12; }
+    .s-ok { color: #dbfff0; background: #103828; border-color: #1e5a41; }
+    .s-warn { color: #ffe7d6; background: #4a2814; border-color: #6b3918; }
+    .flow { white-space: pre-wrap; }
+    .note { border-left: 3px solid var(--accent); padding: 10px 12px; background: #101b33; border-radius: 8px; color: var(--muted); }
+    footer { margin-top: 36px; color: #7f93b8; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="tag">Android App Widget</span>
+      <span class="tag">Official Tailscale app integration</span>
+      <span class="tag">Explicit state machines</span>
+      <h1>Tailscale Widget — How it works</h1>
+      <p>
+        <strong>tailscale-widget</strong> is a small home-screen widget for the official
+        <code>com.tailscale.ipn</code> Android app. It lets you connect/disconnect the VPN, jump to
+        Tailscale settings (account switcher entry), and shows status — without reimplementing Tailscale.
+      </p>
+      <p>
+        Source: <a href="https://github.com/ajinkyajacob/tailscale-widget">github.com/ajinkyajacob/tailscale-widget</a>
+      </p>
+    </section>
+
+    <h2>High-level architecture</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Widget lifecycle & actions</h3>
+        <p><code>TailscaleWidgetProvider</code> receives widget updates and tap intents (toggle/refresh), requests connection changes, and reconciles UI until the VPN state matches.</p>
+      </div>
+      <div class="card">
+        <h3>Rendering</h3>
+        <p><code>WidgetRenderer</code> resolves inputs into an explicit <code>WidgetState</code> and builds <code>RemoteViews</code> (status, dot, buttons, intents) for the widget.</p>
+      </div>
+      <div class="card">
+        <h3>Tailscale integration</h3>
+        <p><code>TailscaleController</code> is the only boundary to Tailscale/system: install check, VPN-active heuristic (<code>TRANSPORT_VPN</code>), and IPN broadcasts (<code>CONNECT_VPN</code>/<code>DISCONNECT_VPN</code>).</p>
+      </div>
+      <div class="card">
+        <h3>Account read & setup</h3>
+        <p><code>AccountReaderService</code> (accessibility, Tailscale window only) reads/caches the signed-in login and can drive the switch flow; <code>SetupActivity</code> onboards enabling it; <code>AccountStore</code> persists state.</p>
+      </div>
+    </div>
+
+    <h2>Explicit state machines</h2>
+    <p>The app’s behavior is now modeled with explicit states/enums instead of scattered flag branches.</p>
+
+    <h3>1) Widget display state — <code>WidgetState</code></h3>
+    <p>Resolved in <code>WidgetRenderer.resolveState(installed, vpnActive, pendingConnect)</code>:</p>
+    <pre class="flow"><span class="state s-warn">NOT_INSTALLED</span>  if !installed
+<span class="state s-pend">CONNECTING</span>     if pendingConnect == true
+<span class="state s-pend">DISCONNECTING</span>  if pendingConnect == false
+<span class="state s-ok">CONNECTED</span>      if pendingConnect == null &amp;&amp; vpnActive
+<span class="state s-idle">DISCONNECTED</span>   if pendingConnect == null &amp;&amp; !vpnActive
+
+Transition driver: pendingConnect (Boolean overlay) → observed VPN state (TRANSPORT_VPN)</pre>
+
+    <h3>2) Toggle/reconcile flow — provider</h3>
+    <pre class="flow">idle/observed
+  └─ tap toggle → desiredActive = !isVpnActive()
+       └─ requestConnection(desiredActive) + render(pending=desiredActive)
+            └─ reconciling: poll every 300 ms until vpnActive == desiredActive or 7 s timeout
+                 └─ settled: render(pending=null, observed state)</pre>
+    <p>Implemented in <code>TailscaleWidgetProvider.handleToggle</code> (optimistic UI held until the tunnel actually flips, to avoid flicker).</p>
+
+    <h3>3) Account reader phases — <code>AccountReaderService.ReaderPhase</code></h3>
+    <pre class="flow"><span class="state s-pend">SWITCH_PENDING</span>      (scan 400 ms) → drive switcher / open account card
+        │ success → clear switch, cache account, refresh widgets, enter settle
+        ▼
+<span class="state s-warn">POST_SWITCH_SETTLE</span>  (guard ~3 s)  → ignore observations while UI settles
+        │ timeout
+        ▼
+<span class="state s-idle">IDLE_OBSERVE</span>       (scan 1000 ms) → read login-like email and cache on change</pre>
+    <ul>
+      <li>Card-click cooldown: ~800 ms (avoid repeated clicks while opening switcher).</li>
+      <li>Post-switch delayed widget refresh: ~2.5 s.</li>
+      <li>Only Tailscale’s window is observed (accessibility config scoped to <code>com.tailscale.ipn</code>).</li>
+    </ul>
+
+    <h3>4) Switch request window — <code>AccountStore.SwitchRequestState</code></h3>
+    <pre class="flow"><span class="state s-idle">NONE</span> --requestSwitch()--&gt; <span class="state s-pend">PENDING</span> (time-bounded, ~15 s)
+ <span class="state s-pend">PENDING</span> --clearSwitch() or expiry--&gt; <span class="state s-idle">NONE</span></pre>
+    <p><code>getSwitchRequestState()</code> centralizes expiry/cleanup; the reader consults it to enter <code>SWITCH_PENDING</code>.</p>
+
+    <h2>What is intentionally not a local “truth”</h2>
+    <div class="note">
+      <ul>
+        <li><strong>VPN state is heuristic:</strong> Android exposes an active VPN transport, not ownership. It’s treated as evidence (accurate in single-VPN practice) — see <code>TailscaleController.isVpnActive</code>.</li>
+        <li><strong>No profile-switch API:</strong> Tailscale doesn’t expose account switching; the widget deep-links to Settings and (optionally) uses accessibility to read/assist — constrained by Tailscale’s UI.</li>
+        <li><strong>Broadcast contract:</strong> connect/disconnect uses Tailscale’s own receiver actions; future Tailscale releases could change them.</li>
+      </ul>
+    </div>
+
+    <h2>Build, test, CI</h2>
+    <p>Local build &amp; tests:</p>
+    <pre>./gradlew :app:testDebugUnitTest
+./gradlew :app:assembleDebug</pre>
+    <p>GitHub Actions (<code>.github/workflows/android-ci.yml</code>) runs unit tests and assembles the debug APK on pushes/PRs to <code>main</code>; (<code>.github/workflows/pages.yml</code>) deploys this <code>docs/</code> site to GitHub Pages.</p>
+
+    <h2>Key source files</h2>
+    <ul>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java</code> — widget lifecycle, toggle/reconcile</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java</code> — <code>WidgetState</code> resolution &amp; rendering</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/WidgetState.java</code> — display states enum</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java</code> — install/VPN checks &amp; IPN broadcasts</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java</code> — reader phases &amp; switch driving</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java</code> — cached account &amp; switch-request state</li>
+      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java</code>, <code>SwitchActivity.java</code> — onboarding &amp; switch trampoline</li>
+    </ul>
+
+    <footer>
+      Built for Android 8.0+ (minSdk 26). See the <a href="https://github.com/ajinkyajacob/tailscale-widget/blob/main/README.md">README</a> for limitations and build details.
+    </footer>
+  </main>
+</body>
+</html>
