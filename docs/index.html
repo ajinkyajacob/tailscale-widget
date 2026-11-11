@@ -3,157 +3,650 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tailscale Widget — How it works</title>
+  <title>Tailscale Widget — Architecture & State Machines</title>
+  <meta name="description" content="How the Tailscale Android home-screen widget works: architecture, explicit state machines, constraints, and CI/CD.">
+  <meta name="theme-color" content="#0b1020">
   <style>
     :root {
-      --bg: #0b1020;
-      --surface: #121a2e;
-      --surface-2: #18233d;
-      --line: #263454;
-      --text: #e8edf8;
-      --muted: #9fb0d0;
-      --accent: #4e8cff;
-      --accent-2: #7bb0ff;
-      --good: #31c48d;
-      --warn: #f5a524;
-      --bad: #f97066;
+      --bg: #060913;
+      --bg-2: #0b1222;
+      --surface: rgba(16, 24, 44, 0.62);
+      --surface-solid: #10182c;
+      --surface-2: rgba(24, 36, 64, 0.55);
+      --line: rgba(140, 170, 230, 0.14);
+      --line-strong: rgba(140, 170, 230, 0.26);
+      --text: #eef4ff;
+      --muted: #a7b8d8;
+      --soft: #8297bf;
+      --accent: #4f8cff;
+      --accent-2: #7fd0ff;
+      --accent-3: #2bd4bd;
+      --violet: #9b8cff;
+      --good: #34d399;
+      --warn: #f6b73c;
+      --bad: #fb7185;
+      --pending: #f59e0b;
       --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --shadow: 0 30px 80px rgba(0,0,0,0.45);
+      --glow: 0 0 0 1px rgba(127,208,255,0.08), 0 20px 50px rgba(20,60,140,0.25);
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: var(--sans); color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, #162447, transparent), var(--bg); line-height: 1.55; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 64px; }
-    h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
-    h1 { font-size: 2.1rem; letter-spacing: -0.02em; }
-    h2 { font-size: 1.35rem; margin-top: 34px; }
-    h3 { font-size: 1.05rem; margin-top: 18px; color: var(--accent-2); }
-    p { margin: 0 0 12px; color: var(--muted); }
-    a { color: var(--accent-2); }
-    .hero { background: linear-gradient(180deg, rgba(78,140,255,0.12), rgba(78,140,255,0)), var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-    .tag { display: inline-block; font-size: 12px; color: #dbe7ff; background: #1d335f; border: 1px solid #2f4f86; padding: 4px 10px; border-radius: 999px; margin: 0 8px 10px 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-    code, pre { font-family: var(--mono); }
-    code { background: #0d1528; border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; color: #d7e3ff; font-size: 0.92em; }
-    pre { background: #0d1528; border: 1px solid var(--line); border-radius: 12px; padding: 14px; overflow: auto; color: #d7e3ff; font-size: 13px; }
-    ul { margin: 8px 0 12px 20px; color: var(--muted); }
-    li { margin: 6px 0; }
-    .state { display: inline-block; font-weight: 600; font-size: 12px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); }
-    .s-idle { color: #d7e3ff; background: #1a2744; }
-    .s-pend { color: #fff3d6; background: #4a3510; border-color: #6b4b12; }
-    .s-ok { color: #dbfff0; background: #103828; border-color: #1e5a41; }
-    .s-warn { color: #ffe7d6; background: #4a2814; border-color: #6b3918; }
-    .flow { white-space: pre-wrap; }
-    .note { border-left: 3px solid var(--accent); padding: 10px 12px; background: #101b33; border-radius: 8px; color: var(--muted); }
-    footer { margin-top: 36px; color: #7f93b8; font-size: 13px; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 70vmax; height: 70vmax;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.22;
+      z-index: -2;
+      pointer-events: none;
+    }
+    body::before { top: -25vmax; left: -15vmax; background: radial-gradient(circle, #2a63ff, transparent 60%); }
+    body::after { bottom: -30vmax; right: -20vmax; background: radial-gradient(circle, #12b6c9, transparent 60%); opacity: 0.16; }
+    .grid-bg {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 75% 55% at 50% 15%, #000 10%, transparent 78%);
+      opacity: 0.45;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { color: #bfe9ff; }
+    code, pre, kbd { font-family: var(--mono); }
+    code {
+      font-size: 0.88em;
+      color: #e6f0ff;
+      background: rgba(10, 18, 36, 0.85);
+      border: 1px solid var(--line);
+      padding: 0.16em 0.46em;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    pre {
+      margin: 12px 0 0;
+      background: linear-gradient(180deg, rgba(9,15,30,0.95), rgba(7,12,24,0.98));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      overflow: auto;
+      color: #deebff;
+      font-size: 13px;
+      line-height: 1.6;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    pre code { background: none; border: 0; padding: 0; white-space: pre; color: inherit; font-size: 1em; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 22px 20px 80px; }
+    .topbar {
+      position: sticky; top: 10px; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 10px 12px 10px 14px; margin-bottom: 18px;
+      background: rgba(10, 16, 30, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      backdrop-filter: blur(14px) saturate(140%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -0.02em; }
+    .logo {
+      width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center;
+      background: conic-gradient(from 210deg, #2f6fff, #38d6ff, #7b8cff, #2f6fff);
+      box-shadow: 0 10px 26px rgba(79,140,255,0.35), inset 0 0 0 1px rgba(255,255,255,0.18);
+      color: #071022; font-weight: 900; font-size: 17px;
+    }
+    .brand small { display: block; color: var(--soft); font-weight: 600; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-top: -2px; }
+    .nav { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+    .nav a { color: var(--muted); font-size: 13.5px; font-weight: 600; padding: 7px 10px; border-radius: 10px; }
+    .nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .nav .gh { color: var(--text); background: rgba(79,140,255,0.14); border: 1px solid rgba(79,140,255,0.28); }
+
+    .hero {
+      position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; align-items: center;
+      padding: 34px; border-radius: 28px;
+      background:
+        radial-gradient(800px 300px at 20% 0%, rgba(79,140,255,0.18), transparent 60%),
+        linear-gradient(180deg, rgba(17,27,50,0.82), rgba(10,16,31,0.92));
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow), var(--glow);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: -1px; border-radius: 28px; padding: 1px; pointer-events: none;
+      background: linear-gradient(135deg, rgba(127,208,255,0.35), rgba(255,255,255,0) 35%, rgba(155,140,255,0.25));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.7;
+    }
+    .eyebrow { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .pill-tag {
+      font-size: 12px; font-weight: 700; color: #e6f1ff;
+      padding: 5px 11px; border-radius: 999px;
+      background: rgba(79,140,255,0.14); border: 1px solid rgba(79,140,255,0.28);
+    }
+    .pill-tag.cyan { background: rgba(43,212,189,0.12); border-color: rgba(43,212,189,0.28); color: #e5fffb; }
+    .pill-tag.violet { background: rgba(155,140,255,0.12); border-color: rgba(155,140,255,0.28); }
+    h1 { margin: 0 0 12px; font-size: clamp(2.1rem, 4.2vw, 3.25rem); line-height: 1.06; letter-spacing: -0.035em; }
+    .grad { background: linear-gradient(135deg, #ffffff 20%, #9fd3ff 55%, #7ef0df 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { margin: 0; color: var(--muted); font-size: 1.06rem; max-width: 64ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 15px; border-radius: 13px;
+      font-weight: 700; font-size: 14px; color: var(--text); border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.035); transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.06); }
+    .btn.primary {
+      background: linear-gradient(135deg, #3f82ff, #4f8cff 45%, #3ed0e8);
+      color: #061225; border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 14px 30px rgba(79,140,255,0.32);
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px;
+    }
+    .stat { background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+    .stat b { display: block; font-size: 15px; letter-spacing: -0.01em; }
+    .stat span { color: var(--soft); font-size: 12px; }
+
+    .mock-wrap { position: relative; }
+    .mock {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid var(--line-strong);
+      border-radius: 30px; padding: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .phone {
+      border-radius: 24px; padding: 16px 16px 14px;
+      background: linear-gradient(180deg, #f7f9ff, #eef2fb);
+      color: #121826;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 18px 40px rgba(0,0,0,0.22);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    .w-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .w-title { font-weight: 750; font-size: 15px; letter-spacing: -0.01em; }
+    .w-acct { font-size: 12px; color: #5d677c; margin-top: 1px; }
+    .w-glyph { color: #8b95aa; font-size: 16px; }
+    .w-status { display: flex; align-items: center; gap: 9px; margin: 12px 0 14px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 5px rgba(34,197,94,0.16); }
+    .w-status strong { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; }
+    .w-btns { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+    .wp { border-radius: 14px; padding: 12px 14px; text-align: center; font-weight: 700; font-size: 14px; }
+    .wp.disc { background: #fee7e7; color: #c22f3a; }
+    .wp.set { background: #e4e8f2; color: #1f2a40; padding: 12px 16px; }
+    .mock-cap { margin: 10px 2px 0; text-align: center; font-size: 12px; color: var(--soft); }
+
+    main section { margin-top: 30px; }
+    .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 0 2px 14px; }
+    h2 { margin: 0; font-size: 1.55rem; letter-spacing: -0.025em; }
+    .sec-head p { margin: 0; color: var(--soft); font-size: 14px; max-width: 60ch; }
+
+    .grid { display: grid; gap: 14px; }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+    .g2 { grid-template-columns: repeat(2, 1fr); }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px 17px;
+      backdrop-filter: blur(8px);
+    }
+    .card:hover { border-color: var(--line-strong); }
+    .kicker { font-size: 11px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 8px; }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; letter-spacing: -0.015em; }
+    .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+    .src { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .src code { font-size: 11.5px; }
+
+    .flow-card {
+      background: linear-gradient(180deg, rgba(17,26,48,0.78), rgba(11,17,32,0.88));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .flow-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .flow-top h3 { margin: 0; font-size: 1.08rem; letter-spacing: -0.015em; }
+    .badge {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.04em;
+      color: #dfeaff; background: rgba(79,140,255,0.14);
+      border: 1px solid rgba(79,140,255,0.28); padding: 5px 9px; border-radius: 999px;
+    }
+    .flow-card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .nodes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0 12px; }
+    .node {
+      padding: 7px 11px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+      border: 1px solid var(--line-strong); background: rgba(255,255,255,0.04); color: #e8f1ff;
+    }
+    .node.ok { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.35); color: #ddfff3; }
+    .node.pend { background: rgba(245,158,11,0.13); border-color: rgba(245,158,11,0.38); color: #fff1d6; }
+    .node.warn { background: rgba(251,113,133,0.12); border-color: rgba(251,113,133,0.35); color: #ffe3e8; }
+    .node.idle { background: rgba(159,176,208,0.10); border-color: rgba(159,176,208,0.28); }
+    .arr { color: var(--soft); font-weight: 700; font-size: 14px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip {
+      font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line); padding: 5px 10px; border-radius: 999px;
+    }
+    .chip b { color: #eaf2ff; font-weight: 700; }
+
+    .diagram {
+      display: grid; gap: 10px; margin-top: 10px;
+    }
+    .lane {
+      display: grid; grid-template-columns: 180px 1fr; gap: 12px; align-items: start;
+      padding: 10px 12px; border: 1px dashed rgba(140,170,230,0.22); border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+    }
+    .lane .label { font-size: 12.5px; font-weight: 800; color: #dceaff; padding-top: 2px; }
+    .lane .desc { color: var(--muted); font-size: 13.5px; }
+    .lane .desc b { color: #eaf2ff; }
+
+    .callout {
+      border: 1px solid rgba(246,183,60,0.28);
+      background: linear-gradient(180deg, rgba(246,183,60,0.10), rgba(246,183,60,0.03));
+      border-radius: var(--radius); padding: 18px;
+    }
+    .callout h3 { margin: 0 0 8px; font-size: 1.02rem; color: #ffe7b3; }
+    .bullets { margin: 0; padding-left: 18px; color: #e7dcc0; }
+    .bullets li { margin: 8px 0; }
+    .bullets strong { color: #fff2cf; }
+
+    .steps { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; counter-reset: s; }
+    .steps li {
+      counter-increment: s; position: relative; padding: 12px 14px 12px 46px;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 14px; color: var(--muted);
+    }
+    .steps li::before {
+      content: counter(s); position: absolute; left: 13px; top: 12px; width: 22px; height: 22px;
+      border-radius: 8px; display: grid; place-items: center; font-size: 12px; font-weight: 800;
+      color: #071225; background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+    }
+    .mini { font-size: 13.5px; color: var(--muted); margin: 10px 0 0; }
+
+    .split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 14px; }
+    .table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+    .table th, .table td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .table th { color: #dceaff; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .table td { color: var(--muted); }
+    .table td:first-child { color: #eaf2ff; font-weight: 600; white-space: nowrap; }
+
+    footer {
+      margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      color: var(--soft); font-size: 13.5px;
+    }
+    .foot-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .foot-links a { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,0.02); }
+    .foot-links a:hover { color: var(--text); border-color: var(--line-strong); }
+
+    @media (max-width: 1020px) {
+      .hero { grid-template-columns: 1fr; }
+      .g4 { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .lane { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 700px) {
+      .wrap { padding: 14px 14px 64px; }
+      .topbar { position: static; flex-direction: column; align-items: flex-start; }
+      .hero { padding: 20px; border-radius: 22px; }
+      .g4, .g2, .g3 { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 2rem; }
+      .sec-head { flex-direction: column; align-items: flex-start; }
+      .flow-top { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <span class="tag">Android App Widget</span>
-      <span class="tag">Official Tailscale app integration</span>
-      <span class="tag">Explicit state machines</span>
-      <h1>Tailscale Widget — How it works</h1>
-      <p>
-        <strong>tailscale-widget</strong> is a small home-screen widget for the official
-        <code>com.tailscale.ipn</code> Android app. It lets you connect/disconnect the VPN, jump to
-        Tailscale settings (account switcher entry), and shows status — without reimplementing Tailscale.
-      </p>
-      <p>
-        Source: <a href="https://github.com/ajinkyajacob/tailscale-widget">github.com/ajinkyajacob/tailscale-widget</a>
-      </p>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">T</div>
+        <div>tailscale-widget<small>Android · Home screen</small></div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#architecture">Architecture</a>
+        <a href="#states">State machines</a>
+        <a href="#constraints">Constraints</a>
+        <a href="#build">Build & CI</a>
+        <a class="gh" href="https://github.com/ajinkyajacob/tailscale-widget">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Overview">
+      <div>
+        <div class="eyebrow">
+          <span class="pill-tag">Android App Widget</span>
+          <span class="pill-tag cyan">Official Tailscale integration</span>
+          <span class="pill-tag violet">Explicit state machines</span>
+        </div>
+        <h1><span class="grad">A small, honest widget</span><br>for the Tailscale VPN.</h1>
+        <p class="lead">
+          <code>tailscale-widget</code> puts connect/disconnect, status, and account access on your home screen by
+          talking to the official <code>com.tailscale.ipn</code> app — never reimplementing the VPN. Its behavior is
+          modeled with explicit states, targets, and time-bounded phases instead of scattered flag branches.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/ajinkyajacob/tailscale-widget">View repository</a>
+          <a class="btn" href="https://github.com/ajinkyajacob/tailscale-widget/blob/main/README.md">Read the README</a>
+          <a class="btn" href="#states">Explore states</a>
+        </div>
+        <div class="stats" aria-label="Highlights">
+          <div class="stat"><b>4 explicit machines</b><span>Display, reconcile, reader, switch window</span></div>
+          <div class="stat"><b>Heuristic, not truth</b><span>VPN observed via <code>TRANSPORT_VPN</code></span></div>
+          <div class="stat"><b>Android 8.0+</b><span>minSdk 26 · Java · no 3rd-party deps</span></div>
+        </div>
+      </div>
+
+      <div class="mock-wrap" aria-label="Illustrative widget">
+        <div class="mock">
+          <div class="phone">
+            <div class="w-row">
+              <div>
+                <div class="w-title">Tailscale</div>
+                <div class="w-acct">user@example.com &nbsp;⇄</div>
+              </div>
+              <div class="w-glyph" title="Refresh">↻</div>
+            </div>
+            <div class="w-status"><span class="dot"></span><strong>Connected</strong></div>
+            <div class="w-btns">
+              <div class="wp disc">Disconnect</div>
+              <div class="wp set">Settings</div>
+            </div>
+          </div>
+        </div>
+        <p class="mock-cap">Illustrative 4×2 One UI–style card (not a live screenshot)</p>
+      </div>
     </section>
 
-    <h2>High-level architecture</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Widget lifecycle & actions</h3>
-        <p><code>TailscaleWidgetProvider</code> receives widget updates and tap intents (toggle/refresh), requests connection changes, and reconciles UI until the VPN state matches.</p>
-      </div>
-      <div class="card">
-        <h3>Rendering</h3>
-        <p><code>WidgetRenderer</code> resolves inputs into an explicit <code>WidgetState</code> and builds <code>RemoteViews</code> (status, dot, buttons, intents) for the widget.</p>
-      </div>
-      <div class="card">
-        <h3>Tailscale integration</h3>
-        <p><code>TailscaleController</code> is the only boundary to Tailscale/system: install check, VPN-active heuristic (<code>TRANSPORT_VPN</code>), and IPN broadcasts (<code>CONNECT_VPN</code>/<code>DISCONNECT_VPN</code>).</p>
-      </div>
-      <div class="card">
-        <h3>Account read & setup</h3>
-        <p><code>AccountReaderService</code> (accessibility, Tailscale window only) reads/caches the signed-in login and can drive the switch flow; <code>SetupActivity</code> onboards enabling it; <code>AccountStore</code> persists state.</p>
-      </div>
-    </div>
+    <main>
+      <section id="architecture">
+        <div class="sec-head">
+          <h2>Architecture at a glance</h2>
+          <p>A thin <code>RemoteViews</code> UI layered over Tailscale’s own broadcasts and Android system signals.</p>
+        </div>
+        <div class="grid g4">
+          <article class="card">
+            <div class="kicker">Lifecycle & actions</div>
+            <h3>Widget provider</h3>
+            <p>Handles <code>AppWidget</code> updates and tap intents (toggle/refresh), computes the desired target, and reconciles the UI until the observed VPN state matches.</p>
+            <div class="src"><code>TailscaleWidgetProvider</code></div>
+          </article>
+          <article class="card">
+            <div class="kicker">Rendering</div>
+            <h3>Explicit display state</h3>
+            <p>Resolves inputs into a <code>WidgetState</code> enum and renders <code>RemoteViews</code> (dot, labels, buttons, intents) deterministically per state.</p>
+            <div class="src"><code>WidgetRenderer</code><code>WidgetState</code></div>
+          </article>
+          <article class="card">
+            <div class="kicker">Integration boundary</div>
+            <h3>Tailscale controller</h3>
+            <p>The only class that talks to Tailscale/system: install checks, VPN-active heuristic (<code>TRANSPORT_VPN</code>), and IPN broadcasts to connect or disconnect.</p>
+            <div class="src"><code>TailscaleController</code></div>
+          </article>
+          <article class="card">
+            <div class="kicker">Account & onboarding</div>
+            <h3>Reader, store, setup</h3>
+            <p>Accessibility service (Tailscale window only) reads/caches the login and can assist switching; setup onboards permission; local store persists account and request window.</p>
+            <div class="src"><code>AccountReaderService</code><code>AccountStore</code><code>SetupActivity</code></div>
+          </article>
+        </div>
 
-    <h2>Explicit state machines</h2>
-    <p>The app’s behavior is now modeled with explicit states/enums instead of scattered flag branches.</p>
+        <div class="grid g3" style="margin-top:14px">
+          <article class="card">
+            <div class="kicker">Control</div>
+            <h3>IPN broadcasts</h3>
+            <p>Sends <code>com.tailscale.ipn.CONNECT_VPN</code> / <code>DISCONNECT_VPN</code> to Tailscale’s exported receiver — a request, not a forced switch.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Observation</div>
+            <h3>VPN heuristic</h3>
+            <p>Treats an active network <code>TRANSPORT_VPN</code> as evidence the tunnel is up (accurate when Tailscale is the only VPN; not ownership).</p>
+          </article>
+          <article class="card">
+            <div class="kicker">Navigation</div>
+            <h3>Deep links & trampolines</h3>
+            <p>Opens Tailscale (home/settings) via deep links/intents; <code>SwitchActivity</code> marks a switch request then hands off to the reader flow.</p>
+          </article>
+        </div>
+      </section>
 
-    <h3>1) Widget display state — <code>WidgetState</code></h3>
-    <p>Resolved in <code>WidgetRenderer.resolveState(installed, vpnActive, pendingConnect)</code>:</p>
-    <pre class="flow"><span class="state s-warn">NOT_INSTALLED</span>  if !installed
-<span class="state s-pend">CONNECTING</span>     if pendingConnect == true
-<span class="state s-pend">DISCONNECTING</span>  if pendingConnect == false
-<span class="state s-ok">CONNECTED</span>      if pendingConnect == null &amp;&amp; vpnActive
-<span class="state s-idle">DISCONNECTED</span>   if pendingConnect == null &amp;&amp; !vpnActive
+      <section id="states">
+        <div class="sec-head">
+          <h2>Explicit state machines</h2>
+          <p>Previously implicit flags, branches, and timers — now named states with clear transitions and guards.</p>
+        </div>
 
-Transition driver: pendingConnect (Boolean overlay) → observed VPN state (TRANSPORT_VPN)</pre>
+        <article class="flow-card" style="margin-bottom:14px">
+          <div class="flow-top">
+            <h3>1) Widget display state</h3>
+            <span class="badge">WidgetState · resolveState()</span>
+          </div>
+          <p><code>WidgetRenderer.resolveState(installed, vpnActive, pendingConnect)</code> maps inputs to one renderable state. A pending overlay wins over the observed VPN state; “not installed” wins overall.</p>
+          <div class="nodes">
+            <span class="node warn">NOT_INSTALLED</span>
+            <span class="arr">•</span>
+            <span class="node pend">CONNECTING</span>
+            <span class="arr">•</span>
+            <span class="node pend">DISCONNECTING</span>
+            <span class="arr">•</span>
+            <span class="node ok">CONNECTED</span>
+            <span class="arr">•</span>
+            <span class="node idle">DISCONNECTED</span>
+          </div>
+          <pre><code>if !installed                      → NOT_INSTALLED
+if pendingConnect == true          → CONNECTING
+if pendingConnect == false         → DISCONNECTING
+if pendingConnect == null &amp;&amp; vpn   → CONNECTED
+if pendingConnect == null &amp;&amp; !vpn  → DISCONNECTED</code></pre>
+          <div class="meta">
+            <span class="chip"><b>Driver</b> <code>pendingConnect</code> (Boolean overlay) → observed VPN</span>
+            <span class="chip"><b>Files</b> <code>WidgetState.java</code>, <code>WidgetRenderer.java</code></span>
+          </div>
+        </article>
 
-    <h3>2) Toggle/reconcile flow — provider</h3>
-    <pre class="flow">idle/observed
-  └─ tap toggle → desiredActive = !isVpnActive()
-       └─ requestConnection(desiredActive) + render(pending=desiredActive)
-            └─ reconciling: poll every 300 ms until vpnActive == desiredActive or 7 s timeout
-                 └─ settled: render(pending=null, observed state)</pre>
-    <p>Implemented in <code>TailscaleWidgetProvider.handleToggle</code> (optimistic UI held until the tunnel actually flips, to avoid flicker).</p>
+        <article class="flow-card" style="margin-bottom:14px">
+          <div class="flow-top">
+            <h3>2) Toggle & reconciliation flow</h3>
+            <span class="badge">TailscaleWidgetProvider.handleToggle</span>
+          </div>
+          <p>Optimistic target with polling: the UI moves to the requested state immediately and is held until the tunnel actually flips, avoiding flicker while Tailscale starts.</p>
+          <div class="nodes">
+            <span class="node idle">idle / observed</span><span class="arr">→</span>
+            <span class="node pend">requested (pending)</span><span class="arr">→</span>
+            <span class="node pend">reconciling (poll)</span><span class="arr">→</span>
+            <span class="node ok">settled (observed)</span>
+          </div>
+          <div class="diagram">
+            <div class="lane"><div class="label">Target</div><div class="desc"><b><code>desiredActive = !isVpnActive()</code></b> — explicit intent (connect vs disconnect).</div></div>
+            <div class="lane"><div class="label">Request</div><div class="desc">Send IPN broadcast and render pending (<code>CONNECTING</code>/<code>DISCONNECTING</code>).</div></div>
+            <div class="lane"><div class="label">Reconcile</div><div class="desc">Background poll every <b>300&nbsp;ms</b> until observed == desired or <b>7&nbsp;s</b> timeout.</div></div>
+            <div class="lane"><div class="label">Settle</div><div class="desc">Render with <code>pending = null</code> (observed state). Install-missing short-circuits to observed.</div></div>
+          </div>
+          <div class="meta">
+            <span class="chip"><b>Poll</b> 300 ms</span>
+            <span class="chip"><b>Timeout</b> 7 s</span>
+            <span class="chip"><b>Mechanism</b> <code>goAsync</code> + worker thread</span>
+          </div>
+        </article>
 
-    <h3>3) Account reader phases — <code>AccountReaderService.ReaderPhase</code></h3>
-    <pre class="flow"><span class="state s-pend">SWITCH_PENDING</span>      (scan 400 ms) → drive switcher / open account card
-        │ success → clear switch, cache account, refresh widgets, enter settle
-        ▼
-<span class="state s-warn">POST_SWITCH_SETTLE</span>  (guard ~3 s)  → ignore observations while UI settles
-        │ timeout
-        ▼
-<span class="state s-idle">IDLE_OBSERVE</span>       (scan 1000 ms) → read login-like email and cache on change</pre>
-    <ul>
-      <li>Card-click cooldown: ~800 ms (avoid repeated clicks while opening switcher).</li>
-      <li>Post-switch delayed widget refresh: ~2.5 s.</li>
-      <li>Only Tailscale’s window is observed (accessibility config scoped to <code>com.tailscale.ipn</code>).</li>
-    </ul>
+        <div class="grid g2">
+          <article class="flow-card">
+            <div class="flow-top">
+              <h3>3) Account reader phases</h3>
+              <span class="badge">ReaderPhase</span>
+            </div>
+            <p>Accessibility-driven observation and switch assistance, scoped to Tailscale’s window (<code>com.tailscale.ipn</code>).</p>
+            <div class="nodes">
+              <span class="node idle">IDLE_OBSERVE</span><span class="arr">⇄</span>
+              <span class="node pend">SWITCH_PENDING</span><span class="arr">→</span>
+              <span class="node warn">POST_SWITCH_SETTLE</span><span class="arr">↺</span>
+            </div>
+            <pre><code>IDLE_OBSERVE       scan 1000 ms → read login-like email, cache on change
+SWITCH_PENDING     scan 400 ms  → open account card / click other profile
+POST_SWITCH_SETTLE guard ~3 s   → ignore observations while UI settles</code></pre>
+            <div class="meta">
+              <span class="chip"><b>Card cooldown</b> 800 ms</span>
+              <span class="chip"><b>Delayed refresh</b> 2.5 s</span>
+              <span class="chip"><b>File</b> <code>AccountReaderService.java</code></span>
+            </div>
+          </article>
 
-    <h3>4) Switch request window — <code>AccountStore.SwitchRequestState</code></h3>
-    <pre class="flow"><span class="state s-idle">NONE</span> --requestSwitch()--&gt; <span class="state s-pend">PENDING</span> (time-bounded, ~15 s)
- <span class="state s-pend">PENDING</span> --clearSwitch() or expiry--&gt; <span class="state s-idle">NONE</span></pre>
-    <p><code>getSwitchRequestState()</code> centralizes expiry/cleanup; the reader consults it to enter <code>SWITCH_PENDING</code>.</p>
+          <article class="flow-card">
+            <div class="flow-top">
+              <h3>4) Switch request window</h3>
+              <span class="badge">SwitchRequestState</span>
+            </div>
+            <p>A time-bounded request flag persisted locally and consulted to enter the pending reader phase.</p>
+            <div class="nodes">
+              <span class="node idle">NONE</span><span class="arr">→</span>
+              <span class="node pend">PENDING</span><span class="arr">→</span>
+              <span class="node idle">NONE</span>
+            </div>
+            <pre><code>requestSwitch()              → NONE → PENDING (≈15 s window)
+clearSwitch() or expiry      → PENDING → NONE
+getSwitchRequestState()      → centralizes expiry/cleanup</code></pre>
+            <div class="meta">
+              <span class="chip"><b>Window</b> ~15 s</span>
+              <span class="chip"><b>Storage</b> SharedPreferences</span>
+              <span class="chip"><b>File</b> <code>AccountStore.java</code></span>
+            </div>
+          </article>
+        </div>
 
-    <h2>What is intentionally not a local “truth”</h2>
-    <div class="note">
-      <ul>
-        <li><strong>VPN state is heuristic:</strong> Android exposes an active VPN transport, not ownership. It’s treated as evidence (accurate in single-VPN practice) — see <code>TailscaleController.isVpnActive</code>.</li>
-        <li><strong>No profile-switch API:</strong> Tailscale doesn’t expose account switching; the widget deep-links to Settings and (optionally) uses accessibility to read/assist — constrained by Tailscale’s UI.</li>
-        <li><strong>Broadcast contract:</strong> connect/disconnect uses Tailscale’s own receiver actions; future Tailscale releases could change them.</li>
-      </ul>
-    </div>
+        <div class="grid g2" style="margin-top:14px">
+          <article class="card">
+            <div class="kicker">Derived inputs</div>
+            <h3>Account & onboarding view</h3>
+            <p>Rendering derives simple display conditions (no invented FSM): cached account shown vs reader waiting vs reader-disabled/enable-setup, with taps routed to app, switch, or setup accordingly.</p>
+            <div class="src"><code>WidgetRenderer.renderAccount</code><code>SetupActivity</code></div>
+          </article>
+          <article class="card">
+            <div class="kicker">External signal</div>
+            <h3>Observed connectivity</h3>
+            <p>Steady-state input is the system’s active network capabilities (<code>TRANSPORT_VPN</code>) plus install presence — evidence from Android/Tailscale, not authoritative Tailscale session ownership.</p>
+            <div class="src"><code>TailscaleController</code></div>
+          </article>
+        </div>
+      </section>
 
-    <h2>Build, test, CI</h2>
-    <p>Local build &amp; tests:</p>
-    <pre>./gradlew :app:testDebugUnitTest
-./gradlew :app:assembleDebug</pre>
-    <p>GitHub Actions (<code>.github/workflows/android-ci.yml</code>) runs unit tests and assembles the debug APK on pushes/PRs to <code>main</code>; (<code>.github/workflows/pages.yml</code>) deploys this <code>docs/</code> site to GitHub Pages.</p>
+      <section id="constraints">
+        <div class="sec-head">
+          <h2>Constraints & reality checks</h2>
+          <p>Intentional limits: what the widget can know, request, and guarantee.</p>
+        </div>
+        <div class="split">
+          <article class="callout">
+            <h3>Not a local “truth”</h3>
+            <ul class="bullets">
+              <li><strong>VPN state is heuristic:</strong> Android reports an active VPN transport, not which app owns it. The widget treats it as evidence (reliable in single-VPN practice) via <code>TailscaleController.isVpnActive</code>.</li>
+              <li><strong>No profile-switch API:</strong> Tailscale doesn’t expose account switching. The widget deep-links to Settings and, if enabled, uses accessibility to read/assist — constrained by Tailscale’s UI and timing.</li>
+              <li><strong>Broadcasts are requests:</strong> connect/disconnect uses Tailscale’s own receiver actions and may be declined (signed out/re-auth); future releases could change the contract.</li>
+              <li><strong>Refresh cadence:</strong> updates on tap, after toggle reconcile, and on the OS widget schedule; external changes appear on next refresh/header tap.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="kicker">Privacy & scope</div>
+            <h3>Narrow, local access</h3>
+            <table class="table" aria-label="Privacy properties">
+              <tr><th>Aspect</th><th>Behavior</th></tr>
+              <tr><td>Observed window</td><td>Accessibility limited to <code>com.tailscale.ipn</code></td></tr>
+              <tr><td>Data stored</td><td>Login name cached locally (SharedPreferences)</td></tr>
+              <tr><td>Network</td><td>No internet permission declared</td></tr>
+              <tr><td>VPN control</td><td>Delegated to official Tailscale app</td></tr>
+            </table>
+            <p class="mini">Without the accessibility reader, the widget still toggles the VPN and opens Tailscale; it just can’t read/assist account switching.</p>
+          </article>
+        </div>
+      </section>
 
-    <h2>Key source files</h2>
-    <ul>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java</code> — widget lifecycle, toggle/reconcile</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java</code> — <code>WidgetState</code> resolution &amp; rendering</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/WidgetState.java</code> — display states enum</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java</code> — install/VPN checks &amp; IPN broadcasts</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java</code> — reader phases &amp; switch driving</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java</code> — cached account &amp; switch-request state</li>
-      <li><code>app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java</code>, <code>SwitchActivity.java</code> — onboarding &amp; switch trampoline</li>
-    </ul>
+      <section id="build">
+        <div class="sec-head">
+          <h2>Build, test & pipelines</h2>
+          <p>Reproducible local commands and automated GitHub workflows.</p>
+        </div>
+        <div class="split">
+          <article class="card">
+            <div class="kicker">Local</div>
+            <h3>Build and verify</h3>
+            <ol class="steps">
+              <li>Run unit tests<br><code>./gradlew :app:testDebugUnitTest</code></li>
+              <li>Assemble debug APK<br><code>./gradlew :app:assembleDebug</code></li>
+              <li>Install on device<br><code>adb install -r app/build/outputs/apk/debug/app-debug.apk</code></li>
+            </ol>
+            <p class="mini">Targets <strong>Android 8.0+</strong> (minSdk 26, target/compile 36, Java 17). <code>local.properties</code> (SDK path) is gitignored.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">GitHub Actions</div>
+            <h3>CI and Pages</h3>
+            <table class="table" aria-label="Workflows">
+              <tr><th>Workflow</th><th>What it does</th></tr>
+              <tr><td><code>android-ci.yml</code></td><td>On push/PR to <code>main</code>: JDK 17 + Android SDK, run unit tests, assemble debug APK, upload artifact.</td></tr>
+              <tr><td><code>pages.yml</code></td><td>Deploys this <code>docs/</code> site to GitHub Pages (repo setting: Pages source = <em>GitHub Actions</em>).</td></tr>
+            </table>
+            <p class="mini">State-resolution logic is covered by <code>WidgetRendererStateTest</code>. Device-level VPN/accessibility behavior still requires integration testing on real hardware.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="source">
+        <div class="sec-head">
+          <h2>Key source files</h2>
+          <p>Where each responsibility lives in the repo.</p>
+        </div>
+        <div class="grid g2">
+          <article class="card">
+            <div class="kicker">Core widget</div>
+            <table class="table">
+              <tr><td><code>TailscaleWidgetProvider.java</code></td><td>Lifecycle, intents, toggle & reconcile</td></tr>
+              <tr><td><code>WidgetRenderer.java</code></td><td><code>WidgetState</code> resolution & <code>RemoteViews</code></td></tr>
+              <tr><td><code>WidgetState.java</code></td><td>Display state enum</td></tr>
+              <tr><td><code>TailscaleController.java</code></td><td>Install/VPN checks & IPN broadcasts</td></tr>
+            </table>
+          </article>
+          <article class="card">
+            <div class="kicker">Account & UI</div>
+            <table class="table">
+              <tr><td><code>AccountReaderService.java</code></td><td>Reader phases & switch driving</td></tr>
+              <tr><td><code>AccountStore.java</code></td><td>Cached account & switch-request state</td></tr>
+              <tr><td><code>SetupActivity.java</code></td><td>Accessibility onboarding</td></tr>
+              <tr><td><code>SwitchActivity.java</code></td><td>Switch request trampoline</td></tr>
+            </table>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      Built for Android 8.0+ (minSdk 26). See the <a href="https://github.com/ajinkyajacob/tailscale-widget/blob/main/README.md">README</a> for limitations and build details.
+      <div>Built for Android 8.0+ (minSdk 26) · Not affiliated with Tailscale Inc.</div>
+      <div class="foot-links">
+        <a href="https://github.com/ajinkyajacob/tailscale-widget">Repository</a>
+        <a href="https://github.com/ajinkyajacob/tailscale-widget/blob/main/README.md">README</a>
+        <a href="https://github.com/ajinkyajacob/tailscale-widget/actions">Actions</a>
+      </div>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
