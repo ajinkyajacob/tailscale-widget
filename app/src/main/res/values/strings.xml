@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tailscale Widget</string>
+    <string name="widget_name">Tailscale VPN</string>
+    <string name="widget_description">Connect or disconnect Tailscale, and jump to your accounts.</string>
+    <string name="widget_title">Tailscale</string>
+
+    <string name="status_connected">Connected</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting\u2026</string>
+    <string name="status_disconnecting">Disconnecting\u2026</string>
+    <string name="status_not_installed">Not installed</string>
+
+    <string name="action_connect">Connect</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="action_accounts">Settings</string>
+    <string name="action_install">Install</string>
+    <string name="action_refresh">Refresh state</string>
+
+    <string name="account_enable">Enable account</string>
+    <string name="account_waiting">Open Tailscale to detect</string>
+    <string name="account_switch">Switch account</string>
+
+    <string name="accessibility_service_label">Tailscale Widget account reader</string>
+    <string name="accessibility_description">Reads the signed-in account name from Tailscale\'s own screen so the widget can display it. Only Tailscale\'s window is observed; nothing leaves this device.</string>
+
+    <string name="setup_title">Account on the widget</string>
+    <string name="setup_body">Tailscale does not share the active account with other apps. To show it on the widget, this app reads the login name from Tailscale\'s account screen.\n\nIt observes only Tailscale\'s window, stores the name on this device, and has no internet permission.</string>
+    <string name="setup_status_on">Account reading: on</string>
+    <string name="setup_status_off">Account reading: off</string>
+    <string name="setup_current">Current account: %1$s</string>
+    <string name="setup_no_account">No account captured yet</string>
+    <string name="setup_enable">Open accessibility settings</string>
+    <string name="setup_open_tailscale">Open Tailscale settings</string>
+    <string name="setup_footnote">After enabling, open Tailscale settings once so the widget can read the account.</string>
+</resources>

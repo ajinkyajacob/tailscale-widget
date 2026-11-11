@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_surface">#FF1C1C1E</color>
+    <color name="widget_outline">#1FFFFFFF</color>
+    <color name="surface">#121214</color>
+
+    <color name="text_primary">#F2F3F5</color>
+    <color name="text_secondary">#A6A9B0</color>
+
+    <color name="accent">#4C8DFF</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="tonal_surface">#33363D</color>
+    <color name="tonal_text">#F2F3F5</color>
+    <color name="destructive_surface">#3A2528</color>
+    <color name="disconnect_text">#FF8A8F</color>
+    <color name="ripple_color">#33FFFFFF</color>
+
+    <color name="status_connected">#34C759</color>
+    <color name="status_disconnected">#8E8E93</color>
+    <color name="status_pending">#FF9F0A</color>
+</resources>

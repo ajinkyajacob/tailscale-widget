@@ -1,0 +1,14 @@
+---
+source_file: "build.gradle.kts"
+type: "code"
+community: "Build & app manifest"
+location: "L1"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Build__app_manifest
+---
+
+# build.gradle.kts
+
+#graphify/code #graphify/EXTRACTED #community/Build__app_manifest

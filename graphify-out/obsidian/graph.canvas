@@ -1,0 +1,1464 @@
+{
+  "nodes": [
+    {
+      "id": "g0",
+      "type": "group",
+      "label": "Widget UI & rendering",
+      "x": 0,
+      "y": 0,
+      "width": 1100,
+      "height": 720,
+      "color": "1"
+    },
+    {
+      "id": "n_accessibilityservice",
+      "type": "file",
+      "file": "AccessibilityService.md",
+      "x": 20,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_account_read_accessibility",
+      "type": "file",
+      "file": "Account name read via AccessibilityService from Tailscale UI.md",
+      "x": 220,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "type": "file",
+      "file": "AccountReaderService.java.md",
+      "x": 420,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "type": "file",
+      "file": "AccountStore.java.md",
+      "x": 20,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_appwidgetprovider",
+      "type": "file",
+      "file": "AppWidgetProvider.md",
+      "x": 220,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_official_app_dependency",
+      "type": "file",
+      "file": "Depends on official Tailscale app (com.tailscale.ipn).md",
+      "x": 420,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_ipn_broadcasts",
+      "type": "file",
+      "file": "IPNReceiver broadcasts CONNECT_VPNDISCONNECT_VPN.md",
+      "x": 20,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_no_account_switch_api",
+      "type": "file",
+      "file": "No third-party accountprofile switch API.md",
+      "x": 220,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_one_ui_design",
+      "type": "file",
+      "file": "One UI-inspired 4\u00d72 RemoteViews card.md",
+      "x": 420,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_optimistic_toggle_polling",
+      "type": "file",
+      "file": "Optimistic toggle with poll-until-flip (\u22647s, 300ms).md",
+      "x": 20,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_settings_deeplink",
+      "type": "file",
+      "file": "Settings deep link to reach account switcher.md",
+      "x": 220,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_tailscale_widget_app",
+      "type": "file",
+      "file": "Tailscale VPN home-screen widget.md",
+      "x": 420,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "type": "file",
+      "file": "TailscaleController.java.md",
+      "x": 20,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "type": "file",
+      "file": "TailscaleWidgetProvider.java.md",
+      "x": 220,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_vpn_transport_heuristic",
+      "type": "file",
+      "file": "VPN state inferred from TRANSPORT_VPN (evidence, not ownership).md",
+      "x": 420,
+      "y": 400,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_widget_states",
+      "type": "file",
+      "file": "Widget states installedmissing, disconnected, connecting, connected, disconnecting.md",
+      "x": 20,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "type": "file",
+      "file": "WidgetRenderer.java.md",
+      "x": 220,
+      "y": 480,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g1",
+      "type": "group",
+      "label": "Widget lifecycle & actions",
+      "x": 1180,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "2"
+    },
+    {
+      "id": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller",
+      "type": "file",
+      "file": ".TailscaleController().md",
+      "x": 1200,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "type": "file",
+      "file": ".handleToggle().md",
+      "x": 1400,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "type": "file",
+      "file": ".isInstalled().md",
+      "x": 1600,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "type": "file",
+      "file": ".isVpnActive().md",
+      "x": 1200,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "type": "file",
+      "file": ".onAppWidgetOptionsChanged().md",
+      "x": 1400,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "type": "file",
+      "file": ".onReceive().md",
+      "x": 1600,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "type": "file",
+      "file": ".onUpdate().md",
+      "x": 1200,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "type": "file",
+      "file": ".refresh().md",
+      "x": 1400,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "type": "file",
+      "file": ".requestConnection().md",
+      "x": 1600,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "type": "file",
+      "file": ".update().md",
+      "x": 1200,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "type": "file",
+      "file": "TailscaleController.md",
+      "x": 1400,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "type": "file",
+      "file": "TailscaleWidgetProvider.md",
+      "x": 1600,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g2",
+      "type": "group",
+      "label": "Account capture & setup",
+      "x": 2140,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "3"
+    },
+    {
+      "id": "n_tailscalewidget_accountstore_accountstore_accountstore",
+      "type": "file",
+      "file": ".AccountStore().md",
+      "x": 2160,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "type": "file",
+      "file": ".findLoginName().md",
+      "x": 2360,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountstore_accountstore_getaccount",
+      "type": "file",
+      "file": ".getAccount().md",
+      "x": 2560,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "type": "file",
+      "file": ".isReaderEnabled().md",
+      "x": 2160,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "type": "file",
+      "file": ".looksLikeLogin().md",
+      "x": 2360,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "type": "file",
+      "file": ".onAccessibilityEvent().md",
+      "x": 2560,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt",
+      "type": "file",
+      "file": ".onInterrupt().md",
+      "x": 2160,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_setupactivity_setupactivity_onresume",
+      "type": "file",
+      "file": ".onResume().md",
+      "x": 2360,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountstore_accountstore_setaccount",
+      "type": "file",
+      "file": ".setAccount().md",
+      "x": 2560,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "type": "file",
+      "file": ".updateWidgets().md",
+      "x": 2160,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "type": "file",
+      "file": "AccountReaderService.md",
+      "x": 2360,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_accountstore_accountstore",
+      "type": "file",
+      "file": "AccountStore.md",
+      "x": 2560,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g3",
+      "type": "group",
+      "label": "Build & app manifest",
+      "x": 3100,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "4"
+    },
+    {
+      "id": "n_tailscale_widget_readme_build_and_install",
+      "type": "file",
+      "file": "Build and install.md",
+      "x": 3120,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_design",
+      "type": "file",
+      "file": "Design.md",
+      "x": 3320,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_how_the_parts_work",
+      "type": "file",
+      "file": "How the parts work.md",
+      "x": 3520,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_limitations_by_design_not_bugs",
+      "type": "file",
+      "file": "Limitations (by design, not bugs).md",
+      "x": 3120,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_readme_md",
+      "type": "file",
+      "file": "README.md",
+      "x": 3320,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_requirements",
+      "type": "file",
+      "file": "Requirements.md",
+      "x": 3520,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_what_it_does",
+      "type": "file",
+      "file": "What it does.md",
+      "x": 3120,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly",
+      "type": "file",
+      "file": "Why the widget cannot switch accounts directly.md",
+      "x": 3320,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_codeblock_1",
+      "type": "file",
+      "file": "codesh (.gradlew appassembleDebug).md",
+      "x": 3520,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscale_widget_readme_tailscale_widget",
+      "type": "file",
+      "file": "tailscale-widget.md",
+      "x": 3120,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g4",
+      "type": "group",
+      "label": "Widget UI & rendering",
+      "x": 0,
+      "y": 800,
+      "width": 660,
+      "height": 420,
+      "color": "5"
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer",
+      "type": "file",
+      "file": ".WidgetRenderer().md",
+      "x": 20,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "type": "file",
+      "file": ".appIntent().md",
+      "x": 220,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "type": "file",
+      "file": ".refreshIntent().md",
+      "x": 420,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "type": "file",
+      "file": ".render().md",
+      "x": 20,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "type": "file",
+      "file": ".renderAccount().md",
+      "x": 220,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "type": "file",
+      "file": ".setupIntent().md",
+      "x": 420,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "type": "file",
+      "file": ".storeIntent().md",
+      "x": 20,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "type": "file",
+      "file": ".toggleIntent().md",
+      "x": 220,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "type": "file",
+      "file": "WidgetRenderer.md",
+      "x": 420,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g5",
+      "type": "group",
+      "label": "Account capture & setup",
+      "x": 1180,
+      "y": 800,
+      "width": 660,
+      "height": 420,
+      "color": "6"
+    },
+    {
+      "id": "n_tailscalewidget_setupactivity_setupactivity_oncreate",
+      "type": "file",
+      "file": ".onCreate().md",
+      "x": 1200,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "type": "file",
+      "file": ".openAccessibilitySettings().md",
+      "x": 1400,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_setupactivity_setupactivity_opentailscalesettings",
+      "type": "file",
+      "file": ".openTailscaleSettings().md",
+      "x": 1600,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_activity",
+      "type": "file",
+      "file": "Activity.md",
+      "x": 1200,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_tailscalewidget_setupactivity_setupactivity",
+      "type": "file",
+      "file": "SetupActivity.md",
+      "x": 1400,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_concept_setup_onboarding",
+      "type": "file",
+      "file": "SetupActivity guides enabling accessibility reader.md",
+      "x": 1600,
+      "y": 960,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "type": "file",
+      "file": "SetupActivity.java.md",
+      "x": 1200,
+      "y": 1040,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g6",
+      "type": "group",
+      "label": "Project preferences",
+      "x": 2140,
+      "y": 800,
+      "width": 600,
+      "height": 400,
+      "color": "1"
+    },
+    {
+      "id": "n_taste_taste_taste",
+      "type": "file",
+      "file": "Taste.md",
+      "x": 2160,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_taste_taste_workflow",
+      "type": "file",
+      "file": "Workflow.md",
+      "x": 2360,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_commandcode_taste_taste_md",
+      "type": "file",
+      "file": "taste.md",
+      "x": 2560,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g7",
+      "type": "group",
+      "label": "Project preferences",
+      "x": 3100,
+      "y": 800,
+      "width": 600,
+      "height": 400,
+      "color": "2"
+    },
+    {
+      "id": "n_ui_taste_ui",
+      "type": "file",
+      "file": "UI.md",
+      "x": 3120,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_commandcode_taste_ui_taste_md",
+      "type": "file",
+      "file": "taste_1.md",
+      "x": 3320,
+      "y": 880,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g8",
+      "type": "group",
+      "label": "Build & app manifest",
+      "x": 0,
+      "y": 1300,
+      "width": 600,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_build_gradle_kts",
+      "type": "file",
+      "file": "build.gradle.kts.md",
+      "x": 20,
+      "y": 1380,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g9",
+      "type": "group",
+      "label": "Build & app manifest",
+      "x": 1180,
+      "y": 1300,
+      "width": 600,
+      "height": 400,
+      "color": "4"
+    },
+    {
+      "id": "n_settings_gradle_kts",
+      "type": "file",
+      "file": "settings.gradle.kts.md",
+      "x": 1200,
+      "y": 1380,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g10",
+      "type": "group",
+      "label": "Build & app manifest",
+      "x": 2140,
+      "y": 1300,
+      "width": 600,
+      "height": 400,
+      "color": "5"
+    },
+    {
+      "id": "n_app_build_gradle_kts",
+      "type": "file",
+      "file": "build.gradle.kts_1.md",
+      "x": 2160,
+      "y": 1380,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g11",
+      "type": "group",
+      "label": "Account capture & setup",
+      "x": 3100,
+      "y": 1300,
+      "width": 600,
+      "height": 400,
+      "color": "6"
+    },
+    {
+      "id": "n_concept_local_account_cache",
+      "type": "file",
+      "file": "Account cached locally in SharedPreferences (AccountStore).md",
+      "x": 3120,
+      "y": 1380,
+      "width": 180,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "toNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "label": "queries_and_requests [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "label": "reads_state_from [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java_concept_ipn_broadcasts",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "toNode": "n_concept_ipn_broadcasts",
+      "label": "sends [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java_concept_vpn_transport_heuristic",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "toNode": "n_concept_vpn_transport_heuristic",
+      "label": "infers_state_via [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "toNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "toNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "toNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "toNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "fromNode": "n_tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java_tailscalewidget_widgetrenderer_widgetrenderer",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java_concept_settings_deeplink",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "toNode": "n_concept_settings_deeplink",
+      "label": "opens [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "label": "reads_account_from [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java_concept_widget_states",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "toNode": "n_concept_widget_states",
+      "label": "renders [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_render_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount_tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount_tailscalewidget_accountstore_accountstore_getaccount",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_getaccount",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_widgetrenderer_widgetrenderer_appintent_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "fromNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "toNode": "n_tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_accessibilityservice",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_accessibilityservice",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_tailscalewidget_accountreaderservice_accountreaderservice",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_concept_account_read_accessibility",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_concept_account_read_accessibility",
+      "label": "implements [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "label": "writes_account_to [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "label": "guides_enabling_of [INFERRED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "label": "refreshes_widgets_via [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_accessibilityservice",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_accessibilityservice",
+      "label": "extends [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent_tailscalewidget_accountstore_accountstore_getaccount",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_getaccount",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent_tailscalewidget_accountstore_accountstore_setaccount",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_setaccount",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountreaderservice_accountreaderservice_findloginname_tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "fromNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "toNode": "n_tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java_tailscalewidget_accountstore_accountstore",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "toNode": "n_tailscalewidget_accountstore_accountstore",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "toNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "label": "checks_status_via [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_tailscalewidget_accountstore_accountstore_accountstore",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_accountstore",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_tailscalewidget_accountstore_accountstore_getaccount",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_getaccount",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_tailscalewidget_accountstore_accountstore_setaccount",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_setaccount",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore",
+      "toNode": "n_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_getaccount_tailscalewidget_setupactivity_setupactivity_onresume",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore_getaccount",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_onresume",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_accountstore_accountstore_isreaderenabled_tailscalewidget_setupactivity_setupactivity_onresume",
+      "fromNode": "n_tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_onresume",
+      "label": "calls [INFERRED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java_appwidgetprovider",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "toNode": "n_appwidgetprovider",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java_concept_optimistic_toggle_polling",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "toNode": "n_concept_optimistic_toggle_polling",
+      "label": "implements [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java_concept_widget_states",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "toNode": "n_concept_widget_states",
+      "label": "drives [INFERRED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_appwidgetprovider",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_appwidgetprovider",
+      "label": "extends [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "fromNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "toNode": "n_tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java_activity",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "toNode": "n_activity",
+      "label": "imports [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java_tailscalewidget_setupactivity_setupactivity",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java_concept_setup_onboarding",
+      "fromNode": "n_app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "toNode": "n_concept_setup_onboarding",
+      "label": "implements [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_activity",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "toNode": "n_activity",
+      "label": "extends [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_tailscalewidget_setupactivity_setupactivity_oncreate",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_oncreate",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_tailscalewidget_setupactivity_setupactivity_onresume",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_onresume",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_tailscalewidget_setupactivity_setupactivity_opentailscalesettings",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_opentailscalesettings",
+      "label": "method [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_oncreate_tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity_oncreate",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscalewidget_setupactivity_setupactivity_oncreate_tailscalewidget_setupactivity_setupactivity_opentailscalesettings",
+      "fromNode": "n_tailscalewidget_setupactivity_setupactivity_oncreate",
+      "toNode": "n_tailscalewidget_setupactivity_setupactivity_opentailscalesettings",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_readme_md_tailscale_widget_readme_tailscale_widget",
+      "fromNode": "n_readme_md",
+      "toNode": "n_tailscale_widget_readme_tailscale_widget",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_what_it_does",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_what_it_does",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_design",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_design",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_requirements",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_requirements",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_build_and_install",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_build_and_install",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_how_the_parts_work",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_how_the_parts_work",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_tailscale_widget_tailscale_widget_readme_limitations_by_design_not_bugs",
+      "fromNode": "n_tailscale_widget_readme_tailscale_widget",
+      "toNode": "n_tailscale_widget_readme_limitations_by_design_not_bugs",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_tailscale_widget_readme_build_and_install_tailscale_widget_readme_codeblock_1",
+      "fromNode": "n_tailscale_widget_readme_build_and_install",
+      "toNode": "n_tailscale_widget_readme_codeblock_1",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_commandcode_taste_taste_md_taste_taste_taste",
+      "fromNode": "n_commandcode_taste_taste_md",
+      "toNode": "n_taste_taste_taste",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_taste_taste_taste_taste_taste_workflow",
+      "fromNode": "n_taste_taste_taste",
+      "toNode": "n_taste_taste_workflow",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_commandcode_taste_ui_taste_md_ui_taste_ui",
+      "fromNode": "n_commandcode_taste_ui_taste_md",
+      "toNode": "n_ui_taste_ui",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_concept_tailscale_widget_app_concept_official_app_dependency",
+      "fromNode": "n_concept_tailscale_widget_app",
+      "toNode": "n_concept_official_app_dependency",
+      "label": "depends_on [INFERRED]"
+    },
+    {
+      "id": "e_concept_tailscale_widget_app_concept_one_ui_design",
+      "fromNode": "n_concept_tailscale_widget_app",
+      "toNode": "n_concept_one_ui_design",
+      "label": "implemented_as [INFERRED]"
+    },
+    {
+      "id": "e_concept_tailscale_widget_app_concept_widget_states",
+      "fromNode": "n_concept_tailscale_widget_app",
+      "toNode": "n_concept_widget_states",
+      "label": "presents [INFERRED]"
+    },
+    {
+      "id": "e_concept_official_app_dependency_concept_ipn_broadcasts",
+      "fromNode": "n_concept_official_app_dependency",
+      "toNode": "n_concept_ipn_broadcasts",
+      "label": "provided_by [INFERRED]"
+    },
+    {
+      "id": "e_concept_no_account_switch_api_concept_settings_deeplink",
+      "fromNode": "n_concept_no_account_switch_api",
+      "toNode": "n_concept_settings_deeplink",
+      "label": "works_around [INFERRED]"
+    },
+    {
+      "id": "e_concept_no_account_switch_api_concept_account_read_accessibility",
+      "fromNode": "n_concept_no_account_switch_api",
+      "toNode": "n_concept_account_read_accessibility",
+      "label": "works_around [INFERRED]"
+    }
+  ]
+}

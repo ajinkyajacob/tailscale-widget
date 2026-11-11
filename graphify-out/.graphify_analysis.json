@@ -1,0 +1,232 @@
+{
+  "communities": {
+    "0": [
+      "accessibilityservice",
+      "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "appwidgetprovider",
+      "concept_account_read_accessibility",
+      "concept_ipn_broadcasts",
+      "concept_no_account_switch_api",
+      "concept_official_app_dependency",
+      "concept_one_ui_design",
+      "concept_optimistic_toggle_polling",
+      "concept_settings_deeplink",
+      "concept_tailscale_widget_app",
+      "concept_vpn_transport_heuristic",
+      "concept_widget_states"
+    ],
+    "1": [
+      "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    ],
+    "2": [
+      "tailscalewidget_accountreaderservice_accountreaderservice",
+      "tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin",
+      "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt",
+      "tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets",
+      "tailscalewidget_accountstore_accountstore",
+      "tailscalewidget_accountstore_accountstore_accountstore",
+      "tailscalewidget_accountstore_accountstore_getaccount",
+      "tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "tailscalewidget_accountstore_accountstore_setaccount",
+      "tailscalewidget_setupactivity_setupactivity_onresume"
+    ],
+    "3": [
+      "readme_md",
+      "tailscale_widget_readme_build_and_install",
+      "tailscale_widget_readme_codeblock_1",
+      "tailscale_widget_readme_design",
+      "tailscale_widget_readme_how_the_parts_work",
+      "tailscale_widget_readme_limitations_by_design_not_bugs",
+      "tailscale_widget_readme_requirements",
+      "tailscale_widget_readme_tailscale_widget",
+      "tailscale_widget_readme_what_it_does",
+      "tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly"
+    ],
+    "4": [
+      "tailscalewidget_widgetrenderer_widgetrenderer",
+      "tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "tailscalewidget_widgetrenderer_widgetrenderer_refreshintent",
+      "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "tailscalewidget_widgetrenderer_widgetrenderer_setupintent",
+      "tailscalewidget_widgetrenderer_widgetrenderer_storeintent",
+      "tailscalewidget_widgetrenderer_widgetrenderer_toggleintent",
+      "tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer"
+    ],
+    "5": [
+      "activity",
+      "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "concept_setup_onboarding",
+      "tailscalewidget_setupactivity_setupactivity",
+      "tailscalewidget_setupactivity_setupactivity_oncreate",
+      "tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings",
+      "tailscalewidget_setupactivity_setupactivity_opentailscalesettings"
+    ],
+    "6": [
+      "commandcode_taste_taste_md",
+      "taste_taste_taste",
+      "taste_taste_workflow"
+    ],
+    "7": [
+      "commandcode_taste_ui_taste_md",
+      "ui_taste_ui"
+    ],
+    "8": [
+      "build_gradle_kts"
+    ],
+    "9": [
+      "settings_gradle_kts"
+    ],
+    "10": [
+      "app_build_gradle_kts"
+    ],
+    "11": [
+      "concept_local_account_cache"
+    ]
+  },
+  "cohesion": {
+    "0": 0.15441176470588236,
+    "1": 0.25757575757575757,
+    "2": 0.24242424242424243,
+    "3": 0.2,
+    "4": 0.4444444444444444,
+    "5": 0.42857142857142855,
+    "6": 0.6666666666666666,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0
+  },
+  "gods": [
+    {
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "label": "WidgetRenderer",
+      "degree": 9
+    },
+    {
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "label": "TailscaleWidgetProvider",
+      "degree": 8
+    },
+    {
+      "id": "tailscale_widget_readme_tailscale_widget",
+      "label": "tailscale-widget",
+      "degree": 8
+    },
+    {
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "label": "AccountReaderService",
+      "degree": 7
+    },
+    {
+      "id": "tailscalewidget_setupactivity_setupactivity",
+      "label": "SetupActivity",
+      "degree": 6
+    },
+    {
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "label": "TailscaleController",
+      "degree": 5
+    },
+    {
+      "id": "tailscalewidget_accountstore_accountstore",
+      "label": "AccountStore",
+      "degree": 5
+    },
+    {
+      "id": "concept_tailscale_widget_app",
+      "label": "Tailscale VPN home-screen widget",
+      "degree": 3
+    },
+    {
+      "id": "concept_widget_states",
+      "label": "Widget states: installed/missing, disconnected, connecting, connected, disconnecting",
+      "degree": 3
+    },
+    {
+      "id": "tailscale_widget_readme_build_and_install",
+      "label": "Build and install",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Tailscale VPN home-screen widget",
+      "target": "Widget states: installed/missing, disconnected, connecting, connected, disconnecting",
+      "source_files": [
+        "README.md",
+        "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java"
+      ],
+      "confidence": "INFERRED",
+      "relation": "presents",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 code); connects across different repos/directories"
+    },
+    {
+      "source": "No third-party account/profile switch API",
+      "target": "Account name read via AccessibilityService from Tailscale UI",
+      "source_files": [
+        "README.md",
+        "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java"
+      ],
+      "confidence": "INFERRED",
+      "relation": "works_around",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 code); connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `WidgetRenderer` connect `Widget UI & rendering` to `Widget UI & rendering`?",
+      "why": "High betweenness centrality (0.082) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `AccountReaderService` connect `Account capture & setup` to `Widget UI & rendering`?",
+      "why": "High betweenness centrality (0.071) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `SetupActivity` connect `Account capture & setup` to `Account capture & setup`?",
+      "why": "High betweenness centrality (0.065) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `What it does`, `Design`, `Why the widget cannot switch accounts directly` to the rest of the system?",
+      "why": "14 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ],
+  "labels": {
+    "0": "Widget UI & rendering",
+    "1": "Widget lifecycle & actions",
+    "2": "Account capture & setup",
+    "3": "Build & app manifest",
+    "4": "Widget UI & rendering",
+    "5": "Account capture & setup",
+    "6": "Project preferences",
+    "7": "Project preferences",
+    "8": "Build & app manifest",
+    "9": "Build & app manifest",
+    "10": "Build & app manifest",
+    "11": "Account capture & setup"
+  },
+  "semantic_llm": "current chat LLM (in-session)",
+  "embedding_endpoint_checked": "http://100.70.208.101:1234 (text-embedding-embeddinggemma-2 present, embeddings-only endpoint)"
+}

@@ -1,0 +1,72 @@
+{
+  "/home/ajinkya/.t3/projects/tailscale-widget/build.gradle.kts": {
+    "mtime": 1794411288.3737712,
+    "ast_hash": "3d39ae2714177b71979f167f081c47ce",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/gradlew": {
+    "mtime": 1794411435.138823,
+    "ast_hash": "02c16663c6f0aa37f98d94d698c22b8c",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/settings.gradle.kts": {
+    "mtime": 1794411288.3737712,
+    "ast_hash": "517238a7ad6c96a3e64f2b0e0c851bdd",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/build.gradle.kts": {
+    "mtime": 1794411288.3737712,
+    "ast_hash": "53a501af1121cfe6004855af3b305d16",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java": {
+    "mtime": 1794411306.7735264,
+    "ast_hash": "2effe6ceebd5e9e94ca15e4cf8f92a32",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java": {
+    "mtime": 1794413818.0719259,
+    "ast_hash": "3ff85a34cdafa28383da5532f070a618",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java": {
+    "mtime": 1794413782.3573797,
+    "ast_hash": "de0cdf265ef217c80db3d4a930fc1beb",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java": {
+    "mtime": 1794413863.4243495,
+    "ast_hash": "93d95f663252fd30542d0e4ef4180c0d",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java": {
+    "mtime": 1794413016.8780603,
+    "ast_hash": "8ece716549211b82559f867865f73ea7",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java": {
+    "mtime": 1794413782.3573797,
+    "ast_hash": "06680607907dc0f54a466afe02ebab2d",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/README.md": {
+    "mtime": 1794413529.4985883,
+    "ast_hash": "274bf7acd013e076c1e49d5f423897ac",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/.commandcode/taste/taste.md": {
+    "mtime": 1794411629.3502598,
+    "ast_hash": "bcf70fad4fcdd22b5557233e7b327635",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/.commandcode/taste/ui/taste.md": {
+    "mtime": 1794413567.4821067,
+    "ast_hash": "4bc65acbe33fb94896d1366602f56c3e",
+    "semantic_hash": ""
+  },
+  "/home/ajinkya/.t3/projects/tailscale-widget/assets/icon.svg": {
+    "mtime": 1794410759.6119335,
+    "ast_hash": "44f7718bea2fd558935d46d6677026f2",
+    "semantic_hash": ""
+  }
+}

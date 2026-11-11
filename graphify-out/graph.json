@@ -1,0 +1,1867 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "build.gradle.kts",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "build.gradle.kts",
+      "community_label": "Build & app manifest",
+      "id": "build_gradle_kts"
+    },
+    {
+      "label": "settings.gradle.kts",
+      "file_type": "code",
+      "source_file": "settings.gradle.kts",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "settings.gradle.kts",
+      "community_label": "Build & app manifest",
+      "id": "settings_gradle_kts"
+    },
+    {
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "app/build.gradle.kts",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "build.gradle.kts",
+      "community_label": "Account capture & setup",
+      "id": "app_build_gradle_kts"
+    },
+    {
+      "label": "TailscaleController.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "tailscalecontroller.java",
+      "community_label": "Account capture & setup",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java"
+    },
+    {
+      "label": "TailscaleController",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L14",
+      "community": 1,
+      "norm_label": "tailscalecontroller",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller"
+    },
+    {
+      "label": ".TailscaleController()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L21",
+      "community": 1,
+      "norm_label": ".tailscalecontroller()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller"
+    },
+    {
+      "label": ".isInstalled()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L24",
+      "community": 1,
+      "norm_label": ".isinstalled()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled"
+    },
+    {
+      "label": ".isVpnActive()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L38",
+      "community": 1,
+      "norm_label": ".isvpnactive()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive"
+    },
+    {
+      "label": ".requestConnection()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L52",
+      "community": 1,
+      "norm_label": ".requestconnection()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection"
+    },
+    {
+      "label": "WidgetRenderer.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "widgetrenderer.java",
+      "community_label": "Widget UI & rendering",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java"
+    },
+    {
+      "label": "WidgetRenderer",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L12",
+      "community": 4,
+      "norm_label": "widgetrenderer",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer"
+    },
+    {
+      "label": ".WidgetRenderer()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L17",
+      "community": 4,
+      "norm_label": ".widgetrenderer()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer"
+    },
+    {
+      "label": ".render()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L24",
+      "community": 4,
+      "norm_label": ".render()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_render"
+    },
+    {
+      "label": ".renderAccount()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L81",
+      "community": 4,
+      "norm_label": ".renderaccount()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount"
+    },
+    {
+      "label": ".setupIntent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L95",
+      "community": 4,
+      "norm_label": ".setupintent()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_setupintent"
+    },
+    {
+      "label": ".toggleIntent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L102",
+      "community": 4,
+      "norm_label": ".toggleintent()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_toggleintent"
+    },
+    {
+      "label": ".refreshIntent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L110",
+      "community": 4,
+      "norm_label": ".refreshintent()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_refreshintent"
+    },
+    {
+      "label": ".appIntent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L118",
+      "community": 4,
+      "norm_label": ".appintent()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_appintent"
+    },
+    {
+      "label": ".storeIntent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L137",
+      "community": 4,
+      "norm_label": ".storeintent()",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscalewidget_widgetrenderer_widgetrenderer_storeintent"
+    },
+    {
+      "label": "AccountReaderService.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "accountreaderservice.java",
+      "community_label": "Account capture & setup",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java"
+    },
+    {
+      "label": "AccountReaderService",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L15",
+      "community": 2,
+      "norm_label": "accountreaderservice",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice"
+    },
+    {
+      "label": "AccessibilityService",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 0,
+      "norm_label": "accessibilityservice",
+      "community_label": "Account capture & setup",
+      "id": "accessibilityservice"
+    },
+    {
+      "label": ".onAccessibilityEvent()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L22",
+      "community": 2,
+      "norm_label": ".onaccessibilityevent()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent"
+    },
+    {
+      "label": ".onInterrupt()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L48",
+      "community": 2,
+      "norm_label": ".oninterrupt()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt"
+    },
+    {
+      "label": ".findLoginName()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L52",
+      "community": 2,
+      "norm_label": ".findloginname()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice_findloginname"
+    },
+    {
+      "label": ".looksLikeLogin()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L70",
+      "community": 2,
+      "norm_label": ".lookslikelogin()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin"
+    },
+    {
+      "label": ".updateWidgets()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L83",
+      "community": 2,
+      "norm_label": ".updatewidgets()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets"
+    },
+    {
+      "label": "AccountStore.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "accountstore.java",
+      "community_label": "Widget lifecycle & actions",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java"
+    },
+    {
+      "label": "AccountStore",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L8",
+      "community": 2,
+      "norm_label": "accountstore",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_accountstore_accountstore"
+    },
+    {
+      "label": ".AccountStore()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L13",
+      "community": 2,
+      "norm_label": ".accountstore()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_accountstore_accountstore_accountstore"
+    },
+    {
+      "label": ".getAccount()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L16",
+      "community": 2,
+      "norm_label": ".getaccount()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_accountstore_accountstore_getaccount"
+    },
+    {
+      "label": ".setAccount()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L21",
+      "community": 2,
+      "norm_label": ".setaccount()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_accountstore_accountstore_setaccount"
+    },
+    {
+      "label": ".isReaderEnabled()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L28",
+      "community": 2,
+      "norm_label": ".isreaderenabled()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_accountstore_accountstore_isreaderenabled"
+    },
+    {
+      "label": "TailscaleWidgetProvider.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "tailscalewidgetprovider.java",
+      "community_label": "Build & app manifest",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java"
+    },
+    {
+      "label": "TailscaleWidgetProvider",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L11",
+      "community": 1,
+      "norm_label": "tailscalewidgetprovider",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider"
+    },
+    {
+      "label": "AppWidgetProvider",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 0,
+      "norm_label": "appwidgetprovider",
+      "community_label": "Build & app manifest",
+      "id": "appwidgetprovider"
+    },
+    {
+      "label": ".onUpdate()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L20",
+      "community": 1,
+      "norm_label": ".onupdate()",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate"
+    },
+    {
+      "label": ".onAppWidgetOptionsChanged()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L27",
+      "community": 1,
+      "norm_label": ".onappwidgetoptionschanged()",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged"
+    },
+    {
+      "label": ".onReceive()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L33",
+      "community": 1,
+      "norm_label": ".onreceive()",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive"
+    },
+    {
+      "label": ".handleToggle()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L51",
+      "community": 1,
+      "norm_label": ".handletoggle()",
+      "community_label": "Account capture & setup",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "label": ".refresh()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L83",
+      "community": 1,
+      "norm_label": ".refresh()",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L87",
+      "community": 1,
+      "norm_label": ".update()",
+      "community_label": "Build & app manifest",
+      "id": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    },
+    {
+      "label": "SetupActivity.java",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "setupactivity.java",
+      "community_label": "Project preferences",
+      "id": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java"
+    },
+    {
+      "label": "SetupActivity",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L12",
+      "community": 5,
+      "norm_label": "setupactivity",
+      "community_label": "Project preferences",
+      "id": "tailscalewidget_setupactivity_setupactivity"
+    },
+    {
+      "label": "Activity",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 5,
+      "norm_label": "activity",
+      "community_label": "Project preferences",
+      "id": "activity"
+    },
+    {
+      "label": ".onCreate()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L14",
+      "community": 5,
+      "norm_label": ".oncreate()",
+      "community_label": "Project preferences",
+      "id": "tailscalewidget_setupactivity_setupactivity_oncreate"
+    },
+    {
+      "label": ".onResume()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L23",
+      "community": 2,
+      "norm_label": ".onresume()",
+      "community_label": "Widget lifecycle & actions",
+      "id": "tailscalewidget_setupactivity_setupactivity_onresume"
+    },
+    {
+      "label": ".openAccessibilitySettings()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L36",
+      "community": 5,
+      "norm_label": ".openaccessibilitysettings()",
+      "community_label": "Project preferences",
+      "id": "tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings"
+    },
+    {
+      "label": ".openTailscaleSettings()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L47",
+      "community": 5,
+      "norm_label": ".opentailscalesettings()",
+      "community_label": "Project preferences",
+      "id": "tailscalewidget_setupactivity_setupactivity_opentailscalesettings"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "readme.md",
+      "community_label": "Widget UI & rendering",
+      "id": "readme_md"
+    },
+    {
+      "label": "tailscale-widget",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L3",
+      "community": 3,
+      "norm_label": "tailscale-widget",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_tailscale_widget"
+    },
+    {
+      "label": "What it does",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L10",
+      "community": 3,
+      "norm_label": "what it does",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_what_it_does"
+    },
+    {
+      "label": "Design",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L22",
+      "community": 3,
+      "norm_label": "design",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_design"
+    },
+    {
+      "label": "Why the widget cannot switch accounts directly",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "community": 3,
+      "norm_label": "why the widget cannot switch accounts directly",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly"
+    },
+    {
+      "label": "Requirements",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "community": 3,
+      "norm_label": "requirements",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_requirements"
+    },
+    {
+      "label": "Build and install",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L54",
+      "community": 3,
+      "norm_label": "build and install",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_build_and_install"
+    },
+    {
+      "label": "code:sh (./gradlew :app:assembleDebug)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "community": 3,
+      "norm_label": "code:sh (./gradlew :app:assembledebug)",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_codeblock_1"
+    },
+    {
+      "label": "How the parts work",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L68",
+      "community": 3,
+      "norm_label": "how the parts work",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_how_the_parts_work"
+    },
+    {
+      "label": "Limitations (by design, not bugs)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L78",
+      "community": 3,
+      "norm_label": "limitations (by design, not bugs)",
+      "community_label": "Widget UI & rendering",
+      "id": "tailscale_widget_readme_limitations_by_design_not_bugs"
+    },
+    {
+      "label": "taste.md",
+      "file_type": "document",
+      "source_file": ".commandcode/taste/taste.md",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "taste.md",
+      "community_label": "Project preferences",
+      "id": "commandcode_taste_taste_md"
+    },
+    {
+      "label": "Taste",
+      "file_type": "document",
+      "source_file": ".commandcode/taste/taste.md",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "taste",
+      "community_label": "Project preferences",
+      "id": "taste_taste_taste"
+    },
+    {
+      "label": "Workflow",
+      "file_type": "document",
+      "source_file": ".commandcode/taste/taste.md",
+      "source_location": "L3",
+      "community": 6,
+      "norm_label": "workflow",
+      "community_label": "Project preferences",
+      "id": "taste_taste_workflow"
+    },
+    {
+      "label": "taste.md",
+      "file_type": "document",
+      "source_file": ".commandcode/taste/ui/taste.md",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "taste.md",
+      "community_label": "Build & app manifest",
+      "id": "commandcode_taste_ui_taste_md"
+    },
+    {
+      "label": "UI",
+      "file_type": "document",
+      "source_file": ".commandcode/taste/ui/taste.md",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "ui",
+      "community_label": "Build & app manifest",
+      "id": "ui_taste_ui"
+    },
+    {
+      "label": "Tailscale VPN home-screen widget",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_tailscale_widget_app",
+      "community": 0,
+      "norm_label": "tailscale vpn home-screen widget"
+    },
+    {
+      "label": "Depends on official Tailscale app (com.tailscale.ipn)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_official_app_dependency",
+      "community": 0,
+      "norm_label": "depends on official tailscale app (com.tailscale.ipn)"
+    },
+    {
+      "label": "IPNReceiver broadcasts CONNECT_VPN/DISCONNECT_VPN",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_ipn_broadcasts",
+      "community": 0,
+      "norm_label": "ipnreceiver broadcasts connect_vpn/disconnect_vpn"
+    },
+    {
+      "label": "No third-party account/profile switch API",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_no_account_switch_api",
+      "community": 0,
+      "norm_label": "no third-party account/profile switch api"
+    },
+    {
+      "label": "Settings deep link to reach account switcher",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_settings_deeplink",
+      "community": 0,
+      "norm_label": "settings deep link to reach account switcher"
+    },
+    {
+      "label": "VPN state inferred from TRANSPORT_VPN (evidence, not ownership)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_vpn_transport_heuristic",
+      "community": 0,
+      "norm_label": "vpn state inferred from transport_vpn (evidence, not ownership)"
+    },
+    {
+      "label": "Optimistic toggle with poll-until-flip (\u22647s, 300ms)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_optimistic_toggle_polling",
+      "community": 0,
+      "norm_label": "optimistic toggle with poll-until-flip (\u22647s, 300ms)"
+    },
+    {
+      "label": "Account name read via AccessibilityService from Tailscale UI",
+      "file_type": "document",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "id": "concept_account_read_accessibility",
+      "community": 0,
+      "norm_label": "account name read via accessibilityservice from tailscale ui"
+    },
+    {
+      "label": "Account cached locally in SharedPreferences (AccountStore)",
+      "file_type": "document",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "id": "concept_local_account_cache",
+      "community": 11,
+      "norm_label": "account cached locally in sharedpreferences (accountstore)"
+    },
+    {
+      "label": "SetupActivity guides enabling accessibility reader",
+      "file_type": "document",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "id": "concept_setup_onboarding",
+      "community": 5,
+      "norm_label": "setupactivity guides enabling accessibility reader"
+    },
+    {
+      "label": "Widget states: installed/missing, disconnected, connecting, connected, disconnecting",
+      "file_type": "document",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "id": "concept_widget_states",
+      "community": 0,
+      "norm_label": "widget states: installed/missing, disconnected, connecting, connected, disconnecting"
+    },
+    {
+      "label": "One UI-inspired 4\u00d72 RemoteViews card",
+      "file_type": "document",
+      "source_file": "README.md",
+      "id": "concept_one_ui_design",
+      "community": 0,
+      "norm_label": "one ui-inspired 4\u00d72 remoteviews card"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "target": "tailscalewidget_tailscalecontroller_tailscalecontroller"
+    },
+    {
+      "relation": "queries_and_requests",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "TailscaleWidgetProvider.java",
+      "why": "Toggle/refresh consults install/VPN state and requests connection",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java"
+    },
+    {
+      "relation": "reads_state_from",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "WidgetRenderer.java",
+      "why": "Renderer checks install and VPN-active state",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java"
+    },
+    {
+      "relation": "sends",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "TailscaleController.java",
+      "why": "requestConnection broadcasts CONNECT/DISCONNECT to com.tailscale.ipn",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "target": "concept_ipn_broadcasts"
+    },
+    {
+      "relation": "infers_state_via",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "TailscaleController.java",
+      "why": "isVpnActive checks active network TRANSPORT_VPN",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalecontroller_java",
+      "target": "concept_vpn_transport_heuristic"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "target": "tailscalewidget_tailscalecontroller_tailscalecontroller_tailscalecontroller"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "target": "tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "target": "tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleController.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller",
+      "target": "tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_render"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller_isinstalled",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_render"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller_isvpnactive",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "tailscalewidget_tailscalecontroller_tailscalecontroller_requestconnection",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "TailscaleWidgetProvider.java",
+      "why": "Provider renders via WidgetRenderer.render",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java"
+    },
+    {
+      "relation": "opens",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "WidgetRenderer.java",
+      "why": "Accounts/Settings action deep-links to tailscale://navigate/settings (fallback launcher/store)",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "target": "concept_settings_deeplink"
+    },
+    {
+      "relation": "reads_account_from",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "WidgetRenderer.java",
+      "why": "Renders cached account / enable-waiting label",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java"
+    },
+    {
+      "relation": "renders",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "WidgetRenderer.java",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_widgetrenderer_java",
+      "target": "concept_widget_states"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_widgetrenderer"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_render"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_setupintent"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_toggleintent"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_refreshintent"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_appintent"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_storeintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_refreshintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_storeintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_appintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_toggleintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_render",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_appintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_setupintent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "target": "tailscalewidget_accountstore_accountstore_getaccount"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_renderaccount",
+      "target": "tailscalewidget_accountstore_accountstore_isreaderenabled"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/WidgetRenderer.java",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_widgetrenderer_widgetrenderer_appintent",
+      "target": "tailscalewidget_widgetrenderer_widgetrenderer_storeintent"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "accessibilityservice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "AccountReaderService.java",
+      "why": "Observes Tailscale window and extracts login-like text",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "concept_account_read_accessibility"
+    },
+    {
+      "relation": "writes_account_to",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "AccountReaderService.java",
+      "why": "Caches detected login name",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java"
+    },
+    {
+      "relation": "guides_enabling_of",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "SetupActivity.java",
+      "why": "Opens accessibility details/settings for AccountReaderService",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java"
+    },
+    {
+      "relation": "refreshes_widgets_via",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "AccountReaderService.java",
+      "why": "Account updates trigger widget re-render",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountreaderservice_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java"
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "accessibilityservice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_oninterrupt"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_findloginname"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_findloginname"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_updatewidgets"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "target": "tailscalewidget_accountstore_accountstore_getaccount"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice_onaccessibilityevent",
+      "target": "tailscalewidget_accountstore_accountstore_setaccount"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountReaderService.java",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountreaderservice_accountreaderservice_findloginname",
+      "target": "tailscalewidget_accountreaderservice_accountreaderservice_lookslikelogin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "target": "tailscalewidget_accountstore_accountstore"
+    },
+    {
+      "relation": "checks_status_via",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "SetupActivity.java",
+      "why": "Shows reader enabled state and current account",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_accountstore_java",
+      "target": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore",
+      "target": "tailscalewidget_accountstore_accountstore_accountstore"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore",
+      "target": "tailscalewidget_accountstore_accountstore_getaccount"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore",
+      "target": "tailscalewidget_accountstore_accountstore_setaccount"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/AccountStore.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore",
+      "target": "tailscalewidget_accountstore_accountstore_isreaderenabled"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore_getaccount",
+      "target": "tailscalewidget_setupactivity_setupactivity_onresume"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "tailscalewidget_accountstore_accountstore_isreaderenabled",
+      "target": "tailscalewidget_setupactivity_setupactivity_onresume"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "target": "appwidgetprovider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "TailscaleWidgetProvider.java",
+      "why": "goAsync thread polls until VPN matches desired state or timeout",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "target": "concept_optimistic_toggle_polling"
+    },
+    {
+      "relation": "drives",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "TailscaleWidgetProvider.java",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_tailscalewidgetprovider_java",
+      "target": "concept_widget_states"
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "appwidgetprovider"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onupdate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onappwidgetoptionschanged"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_onreceive",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_handletoggle",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/TailscaleWidgetProvider.java",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_refresh",
+      "target": "tailscalewidget_tailscalewidgetprovider_tailscalewidgetprovider_update"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "target": "activity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "target": "tailscalewidget_setupactivity_setupactivity"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source_file": "SetupActivity.java",
+      "why": "Onboarding UI to enable accessibility and open Tailscale settings",
+      "source": "app_src_main_java_com_ajinkya_tailscalewidget_setupactivity_java",
+      "target": "concept_setup_onboarding"
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity",
+      "target": "activity"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity",
+      "target": "tailscalewidget_setupactivity_setupactivity_oncreate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity",
+      "target": "tailscalewidget_setupactivity_setupactivity_onresume"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity",
+      "target": "tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity",
+      "target": "tailscalewidget_setupactivity_setupactivity_opentailscalesettings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity_oncreate",
+      "target": "tailscalewidget_setupactivity_setupactivity_openaccessibilitysettings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/ajinkya/tailscalewidget/SetupActivity.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscalewidget_setupactivity_setupactivity_oncreate",
+      "target": "tailscalewidget_setupactivity_setupactivity_opentailscalesettings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "tailscale_widget_readme_tailscale_widget"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_what_it_does"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_design"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_why_the_widget_cannot_switch_accounts_directly"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_requirements"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_build_and_install"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_how_the_parts_work"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_tailscale_widget",
+      "target": "tailscale_widget_readme_limitations_by_design_not_bugs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tailscale_widget_readme_build_and_install",
+      "target": "tailscale_widget_readme_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".commandcode/taste/taste.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "commandcode_taste_taste_md",
+      "target": "taste_taste_taste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".commandcode/taste/taste.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "taste_taste_taste",
+      "target": "taste_taste_workflow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".commandcode/taste/ui/taste.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "commandcode_taste_ui_taste_md",
+      "target": "ui_taste_ui"
+    },
+    {
+      "relation": "depends_on",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source": "concept_tailscale_widget_app",
+      "target": "concept_official_app_dependency"
+    },
+    {
+      "relation": "implemented_as",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source": "concept_tailscale_widget_app",
+      "target": "concept_one_ui_design"
+    },
+    {
+      "relation": "presents",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source": "concept_tailscale_widget_app",
+      "target": "concept_widget_states"
+    },
+    {
+      "relation": "provided_by",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "why": "Broadcast contract belongs to official Tailscale app",
+      "source": "concept_official_app_dependency",
+      "target": "concept_ipn_broadcasts"
+    },
+    {
+      "relation": "works_around",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "why": "Deep link gets close but cannot switch profile directly",
+      "source": "concept_no_account_switch_api",
+      "target": "concept_settings_deeplink"
+    },
+    {
+      "relation": "works_around",
+      "confidence": "INFERRED",
+      "weight": 1.0,
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "why": "Accessibility reader surfaces active account because no profile API exists",
+      "source": "concept_no_account_switch_api",
+      "target": "concept_account_read_accessibility"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "4a43131e895da43c39b9172dfea60118cd3955f4"
+}
