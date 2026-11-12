@@ -6,6 +6,17 @@
   <title>Tailscale Widget — Architecture & State Machines</title>
   <meta name="description" content="How the Tailscale Android home-screen widget works: architecture, explicit state machines, constraints, and CI/CD.">
   <meta name="theme-color" content="#f4f7fb" id="theme-color-meta">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme',
+          (stored === 'dark' || stored === 'light') ? stored : (prefersDark ? 'dark' : 'light'));
+      } catch (e) {}
+    })();
+  </script>
   <style>
     :root {
       --bg: #f4f7fb;
@@ -244,6 +255,12 @@
     .node.warn { background: #fef2f2; border-color: rgba(220,38,38,0.22); color: #991b1b; }
     .node.idle { background: #f1f5f9; border-color: rgba(100,116,139,0.22); color: #334155; }
     .arr { color: #94a3b8; font-weight: 700; font-size: 14px; }
+    .nodes.state-list > .node:not(:last-child)::after {
+      content: "•";
+      color: var(--soft);
+      margin-left: 8px;
+      font-weight: 700;
+    }
     .g2 pre { font-size: 12px; }
     .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .chip {
@@ -299,12 +316,18 @@
     .foot-links { display: flex; gap: 10px; flex-wrap: wrap; }
     .foot-links a { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: #ffffff; }
     .foot-links a:hover { color: var(--text); border-color: rgba(13,148,136,0.24); }
+    [data-theme="dark"] .foot-links a:hover { border-color: rgba(45,212,191,0.34); }
 
     @media (max-width: 1020px) {
       .hero { grid-template-columns: 1fr; }
       .g4 { grid-template-columns: repeat(2, 1fr); }
       .split { grid-template-columns: 1fr; }
       .lane { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 900px) {
+      .sec-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .sec-head p { max-width: none; }
+      .topbar { flex-wrap: wrap; }
     }
     @media (max-width: 700px) {
       .wrap { padding: 14px 14px 64px; }
@@ -326,6 +349,11 @@
     }
     .theme-toggle:hover { color: var(--text); background: rgba(13,148,136,0.08); border-color: var(--line-strong); }
     .theme-toggle .icon { font-size: 14px; line-height: 1; }
+    :where(a, button, .node, .chip):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
 
     /* Dark theme */
     [data-theme="dark"] {
@@ -551,15 +579,11 @@
             <span class="badge">WidgetState · resolveState()</span>
           </div>
           <p><code>WidgetRenderer.resolveState(installed, vpnActive, pendingConnect)</code> maps inputs to one renderable state. A pending overlay wins over the observed VPN state; “not installed” wins overall.</p>
-          <div class="nodes">
+          <div class="nodes state-list">
             <span class="node warn">NOT_INSTALLED</span>
-            <span class="arr">•</span>
             <span class="node pend">CONNECTING</span>
-            <span class="arr">•</span>
             <span class="node pend">DISCONNECTING</span>
-            <span class="arr">•</span>
             <span class="node ok">CONNECTED</span>
-            <span class="arr">•</span>
             <span class="node idle">DISCONNECTED</span>
           </div>
           <pre><code>if !installed                      → NOT_INSTALLED
@@ -762,7 +786,8 @@ getSwitchRequestState()      → centralizes expiry/cleanup</code></pre>
       var stored = null;
       try { stored = localStorage.getItem('theme'); } catch (e) {}
       var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = (stored === 'dark' || stored === 'light') ? stored : (prefersDark ? 'dark' : 'light');
+      var theme = root.getAttribute('data-theme') ||
+        ((stored === 'dark' || stored === 'light') ? stored : (prefersDark ? 'dark' : 'light'));
 
       function apply(t) {
         theme = t;
