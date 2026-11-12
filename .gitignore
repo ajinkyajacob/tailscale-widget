@@ -7,4 +7,8 @@ app/build/
 captures/
 .commandcode/
 .DS_Store
-graphify-out/
+
+# Graphify: keep curated graph outputs, ignore volatile cache and backups
+graphify-out/cache/
+graphify-out/[0-9]*/
+
