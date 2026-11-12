@@ -133,7 +133,7 @@
 
     .hero {
       position: relative; overflow: hidden;
-      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; align-items: center;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 26px; align-items: center;
       padding: 34px; border-radius: 28px;
       background:
         radial-gradient(900px 320px at 15% 0%, rgba(13,148,136,0.14), transparent 60%),
@@ -177,34 +177,18 @@
     .stat b { display: block; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
     .stat span { color: var(--soft); font-size: 12px; }
 
-    .mock-wrap { position: relative; }
-    .mock {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(241,246,255,0.9));
-      border: 1px solid rgba(255,255,255,0.9);
-      border-radius: 30px; padding: 18px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 50px rgba(13,148,136,0.12), 0 2px 0 rgba(255,255,255,0.8) inset;
+    .shot-wrap { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .shot {
+      display: block; width: 100%; height: auto;
+      /* ~3.9% of width = the widget's 28dp corner at this crop scale */
+      border-radius: 7.8% / 14.5%;
+      background: #1c1c1e;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.30);
     }
-    .phone {
-      border-radius: 24px; padding: 16px 16px 14px;
-      background: linear-gradient(180deg, #ffffff, #f6f9ff);
-      color: #121826;
-      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.06), 0 14px 30px rgba(15,23,42,0.10);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    .shot-cap {
+      margin: 0; text-align: center; font-size: 12px; color: var(--soft);
+      letter-spacing: 0.01em;
     }
-    .w-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .w-title { font-weight: 750; font-size: 15px; letter-spacing: -0.01em; }
-    .w-acct { font-size: 12px; color: #5d677c; margin-top: 1px; }
-    .w-glyph { color: #8b95aa; font-size: 16px; }
-    .w-status { display: flex; align-items: center; gap: 9px; margin: 12px 0 14px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 5px rgba(22,163,74,0.14); }
-    .w-status strong { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; }
-    .w-btns { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
-    .wp { border-radius: 14px; padding: 12px 14px; text-align: center; font-weight: 700; font-size: 14px; }
-    .wp.disc { background: #feeceb; color: #c43131; }
-    .wp.set { background: #e8edf6; color: #1f2a40; padding: 12px 16px; }
-    .mock-cap { margin: 10px 2px 0; text-align: center; font-size: 12px; color: var(--soft); }
 
     main section { margin-top: 30px; }
     .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 0 2px 14px; }
@@ -414,11 +398,7 @@
     [data-theme="dark"] .btn:hover { background: rgba(255,255,255,0.06); box-shadow: none; }
     [data-theme="dark"] .btn.primary { background: linear-gradient(135deg, #0f766e, #14b8a6 45%, #22d3ee); color: #042f2e; border-color: rgba(255,255,255,0.18); box-shadow: 0 14px 30px rgba(20,184,166,0.22); }
     [data-theme="dark"] .stat { background: rgba(255,255,255,0.03); }
-    [data-theme="dark"] .mock {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border-color: var(--line-strong);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
+    [data-theme="dark"] .shot { box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55); }
     [data-theme="dark"] .card { background: var(--surface); box-shadow: none; backdrop-filter: blur(8px); }
     [data-theme="dark"] .card:hover { box-shadow: none; }
     [data-theme="dark"] .flow-card { background: linear-gradient(180deg, rgba(16,28,31,0.80), rgba(10,19,21,0.90)); box-shadow: none; }
@@ -494,25 +474,12 @@
         </div>
       </div>
 
-      <div class="mock-wrap" aria-label="Illustrative widget">
-        <div class="mock">
-          <div class="phone">
-            <div class="w-row">
-              <div>
-                <div class="w-title">Tailscale</div>
-                <div class="w-acct">user@example.com &nbsp;⇄</div>
-              </div>
-              <div class="w-glyph" title="Refresh">↻</div>
-            </div>
-            <div class="w-status"><span class="dot"></span><strong>Connected</strong></div>
-            <div class="w-btns">
-              <div class="wp disc">Disconnect</div>
-              <div class="wp set">Settings</div>
-            </div>
-          </div>
-        </div>
-        <p class="mock-cap">Illustrative 4×2 One UI–style card (not a live screenshot)</p>
-      </div>
+      <figure class="shot-wrap">
+        <img class="shot" src="assets/widget-connected.png"
+             alt="The Tailscale VPN widget on a home screen, showing the account name, a green Connected status dot, and Disconnect and Settings buttons."
+             width="1472" height="792" loading="eager" decoding="async">
+        <figcaption class="shot-cap">Actual widget on a Galaxy S24 Ultra — not a mockup</figcaption>
+      </figure>
     </section>
 
     <main>
@@ -521,26 +488,30 @@
           <h2>Architecture at a glance</h2>
           <p>A thin <code>RemoteViews</code> UI layered over Tailscale’s own broadcasts and Android system signals.</p>
         </div>
-        <div class="grid g4">
-          <article class="card">
+        <div class="grid g4 flow-grid">
+          <article class="card step-card">
+            <div class="step-num" aria-hidden="true">1</div>
             <div class="kicker">Lifecycle & actions</div>
             <h3>Widget provider</h3>
             <p>Handles <code>AppWidget</code> updates and tap intents (toggle/refresh), computes the desired target, and reconciles the UI until the observed VPN state matches.</p>
             <div class="src"><code>TailscaleWidgetProvider</code></div>
           </article>
-          <article class="card">
+          <article class="card step-card">
+            <div class="step-num" aria-hidden="true">2</div>
             <div class="kicker">Rendering</div>
             <h3>Explicit display state</h3>
             <p>Resolves inputs into a <code>WidgetState</code> enum and renders <code>RemoteViews</code> (dot, labels, buttons, intents) deterministically per state.</p>
             <div class="src"><code>WidgetRenderer</code><code>WidgetState</code></div>
           </article>
-          <article class="card">
+          <article class="card step-card">
+            <div class="step-num" aria-hidden="true">3</div>
             <div class="kicker">Integration boundary</div>
             <h3>Tailscale controller</h3>
             <p>The only class that talks to Tailscale/system: install checks, VPN-active heuristic (<code>TRANSPORT_VPN</code>), and IPN broadcasts to connect or disconnect.</p>
             <div class="src"><code>TailscaleController</code></div>
           </article>
-          <article class="card">
+          <article class="card step-card">
+            <div class="step-num" aria-hidden="true">4</div>
             <div class="kicker">Account & onboarding</div>
             <h3>Reader, store, setup</h3>
             <p>Accessibility service (Tailscale window only) reads/caches the login and can assist switching; setup onboards permission; local store persists account and request window.</p>
